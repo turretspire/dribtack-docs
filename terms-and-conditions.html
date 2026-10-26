@@ -3,278 +3,528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dribtack — Terms and Conditions</title>
+<meta name="color-scheme" content="light dark">
+<title>Go Gino: Terms and Conditions</title>
+<meta name="description" content="The terms for using the Go Gino app.">
+<link rel="icon" type="image/png" href="appIcon.png">
+<link rel="apple-touch-icon" href="appIcon.png">
 <style>
+  @font-face {
+    font-family: 'Baloo 2';
+    src: url('fonts/Baloo2-VF.ttf') format('truetype');
+    font-weight: 400 800;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Nunito';
+    src: url('fonts/Nunito-VF.ttf') format('truetype');
+    font-weight: 200 1000;
+    font-display: swap;
+  }
   :root {
-    --peach: #FFE0D0;
-    --rose: #FFB5A7;
-    --coral: #FF7E6B;
-    --lavender: #B8A9C9;
-    --bg: #FFF8F5;
-    --bg-2: #FFF0E8;
-    --ink: #2A1F26;
-    --ink-2: #5A4751;
-    --warning-bg: #FFF4E0;
-    --warning-border: #F5C542;
+    --ground: #FFFFFF;
+    --panel: #F4F5FE;
+    --panel-strong: #EEF0FE;
+    --raised: #FFFFFF;
+    --border: #E3E4F2;
+    --rule: #EEEFF5;
+    --ink: #1C1E2B;
+    --ink-2: #3F4458;
+    --muted: #5C6274;
+    --accent-text: #1D6B91;
+    --done: #89CFF0;
+    --done-deep: #3B8FBF;
+    --action: #FF953A;
+    --action-lip: #E56B1F;
+    --action-text: #A94800;
+    --on-accent: #1C1E2B;
+    --bubble: #EDF6FC;
+    --bubble-border: #D5E9F7;
+    --coach-bg: #F1F3FE;
+    --coach-line: #B8C3F6;
+    --coach-text: #3453D3;
+    --celebrate-bg: #FFF4E8;
+    --celebrate-line: #FFD3A8;
+    --celebrate-text: #A94800;
+    --vine: #60BC71;
+    --vine-deep: #2D7B44;
+    --leaf: #A6DF74;
+    --sky-top: #DDF1FB;
+    --shadow: rgba(28, 30, 43, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #10101F;
+      --panel: #1B1B2E;
+      --panel-strong: #232540;
+      --raised: #2A2A42;
+      --border: #2C2D46;
+      --rule: #23243A;
+      --ink: #F2F3FA;
+      --ink-2: #C7CAE0;
+      --muted: #9EA2BF;
+      --accent-text: #89CFF0;
+      --action-lip: #BE551C;
+      --action-text: #FFA95C;
+      --bubble: #15263A;
+      --bubble-border: #24405A;
+      --coach-bg: #1A1E3E;
+      --coach-line: #37459B;
+      --coach-text: #8FA8FF;
+      --celebrate-bg: #2A1F17;
+      --celebrate-line: #5A3A1E;
+      --celebrate-text: #FFA95C;
+      --sky-top: #173247;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: var(--ground);
+    font-family: "Nunito", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
     line-height: 1.6;
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background:
+      linear-gradient(180deg, var(--sky-top) 0px, var(--ground) 420px);
+    min-height: 100vh;
   }
   .wrap {
-    max-width: 820px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 48px 28px 80px;
+    padding: 40px 16px 72px;
   }
-  header {
-    text-align: center;
-    margin-bottom: 36px;
+  @media (min-width: 560px) {
+    .wrap { padding: 56px 28px 80px; }
   }
-  .brand {
-    display: inline-block;
-    background: linear-gradient(90deg, var(--coral), var(--rose), var(--lavender));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .display {
+    font-family: "Baloo 2", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", sans-serif;
+    font-weight: 800;
+  }
+  a {
+    color: var(--accent-text);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--done);
+  }
+  a:hover { text-decoration-color: var(--accent-text); }
+  p, li { color: var(--ink-2); }
+  strong { color: var(--ink); font-weight: 800; }
+
+  /* ---------- BRAND ---------- */
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .app-icon {
+    display: block;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 18px rgba(59, 143, 191, 0.28));
+  }
+  .wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wordmark .name {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .wordmark svg { display: block; margin-top: 2px; }
+  .kicker {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  /* ---------- SMALL TOP BAR (legal pages) ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .topbar .mini-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .topbar .mini-brand img { width: 40px; height: 40px; display: block; }
+  .topbar .mini-brand span {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .back-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .back-pill:hover { background: var(--panel-strong); }
+
+  /* ---------- HEADINGS ---------- */
+  h1 {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
     font-weight: 800;
     font-size: 34px;
-    letter-spacing: -0.5px;
-  }
-  h1 {
-    font-size: 28px;
-    margin: 8px 0 6px;
-    font-weight: 700;
-  }
-  .meta {
-    color: var(--ink-2);
-    font-size: 14px;
+    line-height: 1.1;
+    margin: 10px 0 10px;
+    color: var(--ink);
   }
   h2 {
-    font-size: 20px;
-    margin-top: 36px;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(184, 169, 201, 0.35);
-    font-weight: 700;
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 1.15;
+    margin: 48px 0 14px;
+    color: var(--ink);
   }
   h3 {
     font-size: 16px;
-    margin-top: 18px;
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-  p, li {
+    font-weight: 800;
+    margin: 20px 0 6px;
     color: var(--ink);
   }
-  a { color: var(--coral); }
-  ul { padding-left: 22px; }
-  li { margin-bottom: 6px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* ---------- CARDS ---------- */
+  .card {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 18px 20px;
+  }
   .callout {
-    background: var(--warning-bg);
-    border-left: 4px solid var(--warning-border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin: 18px 0;
+    border-radius: 22px;
+    padding: 18px 20px;
+    margin: 20px 0;
+    border: 1.5px solid var(--bubble-border);
+    background: var(--bubble);
   }
-  .callout strong { display: block; margin-bottom: 4px; }
-  .toc {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(184, 169, 201, 0.3);
-    border-radius: 16px;
-    padding: 18px 22px;
-    margin: 24px 0 12px;
-    font-size: 14.5px;
+  .callout .kicker { display: block; margin-bottom: 6px; }
+  .callout p { margin: 0; color: var(--ink); font-weight: 700; }
+  .callout.warm {
+    background: var(--celebrate-bg);
+    border-color: var(--celebrate-line);
   }
-  .toc ol { margin: 8px 0 0 22px; padding: 0; }
-  .toc li { margin-bottom: 2px; }
+  .callout.warm .kicker { color: var(--celebrate-text); }
+
+  /* ---------- TAGS ---------- */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 8px;
+    line-height: 1.2;
+  }
+  .tag.free { background: var(--raised); color: var(--muted); border: 1.5px solid var(--border); }
+  .tag.plus { background: var(--action); color: var(--on-accent); box-shadow: 0 2px 0 var(--action-lip); }
+
+  /* ---------- FOOTER ---------- */
   footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(184, 169, 201, 0.35);
-    color: var(--ink-2);
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 1.5px solid var(--rule);
+    color: var(--muted);
     font-size: 13px;
     text-align: center;
   }
-  .placeholder {
-    background: rgba(255, 126, 107, 0.1);
-    border-radius: 4px;
-    padding: 0 4px;
-    color: var(--coral);
-    font-weight: 600;
+  footer p { color: var(--muted); margin: 4px 0; }
+
+  /* ---------- MOTION ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
+  .rise { animation: rise 0.55s cubic-bezier(.34, 1.56, .64, 1) both; }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; }
+    * { transition: none !important; }
+  }
+
+  .doc-head { margin-bottom: 8px; }
+  .doc-head .kicker { margin: 0; }
+  .doc-head h1 { margin-top: 4px; }
+  .intro { font-size: 16px; }
+  .toc {
+    background: var(--panel);
+    border-radius: 22px;
+    padding: 18px 22px;
+    margin: 22px 0 8px;
+    font-size: 15px;
+  }
+  .toc .kicker { display: block; margin-bottom: 6px; }
+  .toc ol { margin: 0; padding-left: 22px; columns: 1; }
+  @media (min-width: 640px) { .toc ol { columns: 2; column-gap: 28px; } }
+  .toc li { margin-bottom: 4px; color: var(--ink); break-inside: avoid; }
+  .toc a { font-weight: 700; text-decoration-color: transparent; color: var(--ink); }
+  .toc a:hover { text-decoration-color: var(--accent-text); color: var(--accent-text); }
+  h2 {
+    padding-top: 14px;
+    border-top: 1.5px solid var(--rule);
+    margin-top: 40px;
+    scroll-margin-top: 16px;
+  }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0 18px;
+    border-radius: 18px;
+    background: var(--panel);
+  }
+  table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1.5px solid var(--border);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+  th {
+    background: var(--panel-strong);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  td:first-child { color: var(--ink); font-weight: 800; }
+  tr:last-child td { border-bottom: none; }
+  code {
+    background: var(--panel-strong);
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .contact-block {
+    background: var(--bubble);
+    border: 1.5px solid var(--bubble-border);
+    border-radius: 22px;
+    padding: 16px 20px;
+  }
+  .contact-block p { margin: 0; color: var(--ink); }
+
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header>
-  <div class="brand">Dribtack</div>
+<div class="topbar">
+  <a class="mini-brand" href="index.html"><img src="appIcon.png" alt="" width="40" height="40"><span>Go Gino</span></a>
+  <a class="back-pill" href="index.html">&lsaquo;&nbsp;Support</a>
+</div>
+
+<header class="doc-head rise">
+  <p class="kicker">Legal</p>
   <h1>Terms and Conditions</h1>
-  <p class="meta">Effective date: May 02, 2026 &middot; Last updated: May 02, 2026</p>
+  <p class="meta">Effective date: May 2, 2026 &middot; Last updated: 26 October, 2026</p>
 </header>
 
-<p>Welcome to Dribtack (the &ldquo;App&rdquo;), a workout tracker and fitness logging application for iOS published by Asad Nawaz (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or the &ldquo;Publisher&rdquo;). These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your access to and use of Dribtack. By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
+<p class="intro">Welcome to Go Gino (the &ldquo;App&rdquo;, formerly called Dribtack), a workout tracker for iOS published by its developer (&ldquo;we&rdquo;, &ldquo;us&rdquo; or the &ldquo;Publisher&rdquo;). These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of the App, alongside Apple&rsquo;s standard End User License Agreement (see &sect;1). By downloading, installing or using it, you agree to these Terms. If you don&rsquo;t agree, please don&rsquo;t use the App.</p>
 
-<div class="callout">
-  <strong>Important Health Notice</strong>
-  Dribtack is a fitness tracking and logging tool, not a medical device, and it does not provide medical, diagnostic, or therapeutic advice. Always consult a qualified healthcare professional before starting, changing, or stopping any exercise programme. See &sect;9 for the full health and fitness disclaimer.
+<div class="callout warm">
+  <span class="kicker">Important health notice</span>
+  <p>Go Gino is a fitness tracking tool, not a medical device, and it doesn&rsquo;t give medical, diagnostic or therapeutic advice. The weights, reps and tips it suggests are generated by software from what you log. Always check with a qualified healthcare professional before starting, changing or stopping an exercise programme, and stop if anything hurts. You exercise at your own risk. See &sect;9 for the full health and fitness disclaimer.</p>
 </div>
 
-<div class="toc">
-  <strong>Contents</strong>
+<nav class="toc" aria-label="Contents">
+  <span class="kicker">Contents</span>
   <ol>
-    <li>Acceptance of Terms</li>
-    <li>Eligibility</li>
-    <li>Description of the Service</li>
-    <li>Your Apple ID and iCloud</li>
-    <li>Subscriptions, Free Trials and Lifetime Purchase</li>
-    <li>Auto-Renewal, Cancellation and Refunds</li>
-    <li>Free and Paid Features</li>
-    <li>User Content</li>
-    <li>Health, Fitness and Medical Disclaimer</li>
-    <li>&ldquo;As Is&rdquo; Disclaimer; Bugs and Defects</li>
-    <li>Limitation of Liability</li>
-    <li>Indemnification</li>
-    <li>Intellectual Property</li>
-    <li>Acceptable Use</li>
-    <li>Privacy</li>
-    <li>Third-Party Services</li>
-    <li>Termination</li>
-    <li>Changes to the App or Terms</li>
-    <li>Governing Law and Dispute Resolution</li>
-    <li>Contact</li>
+    <li><a href="#acceptance">Acceptance of Terms</a></li>
+    <li><a href="#eligibility">Eligibility</a></li>
+    <li><a href="#service">What the App does</a></li>
+    <li><a href="#icloud">Your Apple Account and iCloud</a></li>
+    <li><a href="#plans">Plus: plans, free trials and the One-time purchase</a></li>
+    <li><a href="#renewal">Auto-renewal, cancellation and refunds</a></li>
+    <li><a href="#features">Free and Plus features</a></li>
+    <li><a href="#content">Your content</a></li>
+    <li><a href="#health">Health, fitness and medical disclaimer</a></li>
+    <li><a href="#as-is">&ldquo;As is&rdquo;; bugs and defects</a></li>
+    <li><a href="#liability">Limitation of liability</a></li>
+    <li><a href="#indemnity">Indemnification</a></li>
+    <li><a href="#ip">Intellectual property</a></li>
+    <li><a href="#use">Acceptable use</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#third-party">Third-party services</a></li>
+    <li><a href="#termination">Termination</a></li>
+    <li><a href="#changes">Changes to the App or Terms</a></li>
+    <li><a href="#law">Governing law and disputes</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
-</div>
+</nav>
 
-<h2>1. Acceptance of Terms</h2>
-<p>By creating data in, downloading, or otherwise using Dribtack, you acknowledge that you have read, understood and agree to these Terms, together with any documents incorporated by reference (including our <a href="privacy-policy.html">Privacy Policy</a> and Apple&rsquo;s standard End User License Agreement for App Store apps). If you are using the App on behalf of a person or entity, you represent that you have authority to bind them to these Terms.</p>
+<h2 id="acceptance">1. Acceptance of Terms</h2>
+<p>By creating data in, downloading or otherwise using Go Gino, you confirm that you have read, understood and agree to these Terms, together with the documents they refer to, including our <a href="privacy-policy.html">Privacy Policy</a> and Apple&rsquo;s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">standard End User License Agreement</a> for App Store apps (the &ldquo;Apple EULA&rdquo;).</p>
+<p>The Apple EULA governs your licence to use the App. These Terms add to it and govern the rest of your use of the App, including Plus, Your Content, and the disclaimers and limits in &sect;&sect;9 to 12. If the two conflict about your licence, the Apple EULA prevails.</p>
+<p>If you use the App on behalf of another person or an organisation, you confirm that you have authority to accept these Terms for them.</p>
 
-<h2>2. Eligibility</h2>
-<p>You must be at least 13 years old to use Dribtack. If you are a minor in your jurisdiction, you may use the App only with the consent and supervision of a parent or legal guardian who agrees to these Terms on your behalf. The App is not intended for use by individuals for whom exercise has been medically contraindicated.</p>
+<h2 id="eligibility">2. Eligibility</h2>
+<p>You must be at least 13 years old to use Go Gino. If you&rsquo;re a minor where you live, you may use the App only with the consent and supervision of a parent or legal guardian who accepts these Terms for you. The App isn&rsquo;t intended for anyone who has been medically advised not to exercise.</p>
 
-<h2>3. Description of the Service</h2>
-<p>Dribtack allows you to log workout sessions and sets, browse a library of exercises, generate and use workout templates, view a body-centric muscle activation heatmap, track personal records and body measurements, receive local notifications and reminders, and view progress over time. Features may be added, modified or removed at our discretion. Some features are available only to paying subscribers (see &sect;7).</p>
+<h2 id="service">3. What the App does</h2>
+<p>Go Gino lets you log workouts and sets; browse and add exercises; use saved workouts built from your answers or made by you; receive suggested weights, reps and warm-ups from Gino, the App&rsquo;s coach; use a rest timer, including on your Lock Screen; see a body map, personal bests, badges, progress charts and your body weight; keep progress photos; make share cards; export your workouts; save workouts to Apple Health if you choose; and receive local reminders. Features may be added, changed or removed as &sect;&sect;17 and 18 describe. Some features are available only with Plus (see &sect;7).</p>
 
-<h2>4. Your Apple ID and iCloud</h2>
-<p>Dribtack uses your iCloud account (via Apple&rsquo;s CloudKit private database) to sync your data across your Apple devices signed into the same Apple ID. You are responsible for the security of your Apple ID and any device on which you use the App. We do not have access to your iCloud credentials. Sync availability, latency and reliability depend on Apple&rsquo;s services and your device&rsquo;s network connectivity.</p>
+<h2 id="icloud">4. Your Apple Account and iCloud</h2>
+<p>Go Gino uses your iCloud account (Apple&rsquo;s private CloudKit database) to keep your data in step across the devices signed into the same Apple Account where you use Go Gino. You are responsible for the security of your Apple Account and of any device you use the App on. We have no access to your iCloud credentials. Whether, when and how reliably your data syncs depends on Apple&rsquo;s services and your device&rsquo;s connection. We don&rsquo;t keep a copy of your data, so we can&rsquo;t restore it for you: if iCloud is off for Go Gino, your data is kept only on that device (and in any backup of it).</p>
+<p>Deleting the App removes only the copy on that device. The copy in your iCloud stays until you delete it, and it comes back if you reinstall the App. To delete everything, see &sect;17.</p>
+<h3>Settings kept on each device</h3>
+<p>Some settings stay with each device, including the Apple Health switch, the appearance you choose, whether you&rsquo;ve finished setup there and whether you&rsquo;ve seen the first Plus screen there. A copy of the last two is kept in your iCloud, but each device goes by its own. On a fresh install you may therefore be asked to go through setup again, even if you&rsquo;ve used the App on another device. Your workouts and history still come across through iCloud.</p>
 
-<h3>Local Data</h3>
-<p>Some on-device preferences (including whether you have completed onboarding on a particular device, and whether you have seen the initial paywall) are stored locally on each device and are not synced. This means that on a fresh installation you may be asked to complete onboarding again, even if you have used the App on another device.</p>
-
-<h2>5. Subscriptions, Free Trials and Lifetime Purchase</h2>
-<p>Dribtack is offered on a freemium basis. Certain premium features can be unlocked by purchasing one of the following plans through the Apple App Store:</p>
+<h2 id="plans">5. Plus: plans, free trials and the One-time purchase</h2>
+<p>Go Gino is free to use, and some features need <strong>Go Gino Plus</strong>, which you can buy through the Apple App Store as:</p>
 <ul>
-  <li><strong>Weekly subscription</strong> &mdash; auto-renewing, with a 3-day free trial for eligible new users.</li>
-  <li><strong>Yearly subscription</strong> &mdash; auto-renewing, with a 3-day free trial for eligible new users.</li>
-  <li><strong>Lifetime access</strong> &mdash; a one-time, non-consumable in-app purchase. No free trial; payment is taken at the time of purchase.</li>
+  <li><strong>Weekly</strong>: an auto-renewing subscription, which may include a free trial for eligible new users.</li>
+  <li><strong>Yearly</strong>: an auto-renewing subscription, which may include a free trial for eligible new users.</li>
+  <li><strong>One-time</strong> (its App Store name is Go Gino Plus Lifetime): a single, non-consumable in-app purchase that unlocks Plus with no renewals and no expiry date (see &sect;6). It has no free trial, and payment is taken when you buy.</li>
 </ul>
-<p>Pricing displayed in the App is set through Apple App Store Connect and may vary by region, currency and time. The price you are charged is the price displayed on the App Store at the moment of purchase. Any &ldquo;savings&rdquo; or &ldquo;best value&rdquo; indicators are calculated dynamically from current pricing and are illustrative only.</p>
+<p>Prices, free trials and renewal periods are set in App Store Connect and may vary by country, currency and over time. The App reads them from the App Store and shows them before you buy; the price you pay is the one shown on Apple&rsquo;s purchase sheet when you confirm. Any figure worked out from a price, such as the Yearly plan&rsquo;s price per week, is for comparison only.</p>
 
-<h2>6. Auto-Renewal, Cancellation and Refunds</h2>
-<h3>Auto-Renewal</h3>
-<p>Subscriptions automatically renew at the end of each billing period unless cancelled at least 24 hours before the end of the current period. Your Apple ID will be charged for renewal within 24 hours prior to the end of the period at the then-current price for the relevant plan.</p>
-
-<h3>Free Trial</h3>
-<p>If you start a 3-day free trial, you will not be charged during the trial period. If you do not cancel before the trial ends, your subscription will begin and your Apple ID will be charged automatically. Free trials are available only to eligible Apple IDs and may be limited to one trial per user, per plan, per Apple policy.</p>
-
+<h2 id="renewal">6. Auto-renewal, cancellation and refunds</h2>
+<h3>Payment and auto-renewal</h3>
+<p>Payment is charged to your Apple Account when you confirm a purchase or, if a free trial applies, when the trial ends. Subscriptions renew automatically at the end of each period unless cancelled at least 24 hours before the period ends. Your Apple Account is charged for the renewal within the 24 hours before the period ends, at the plan&rsquo;s then-current price.</p>
+<h3>Free trials</h3>
+<p>A free trial, if one is offered, applies only to the Weekly and Yearly subscriptions. Its length is shown in the App and on Apple&rsquo;s purchase sheet before you confirm. Nothing is charged until the trial ends. If you don&rsquo;t cancel at least 24 hours before it ends, the subscription begins and your Apple Account is charged automatically. If you buy a subscription during a free trial, any unused part of the trial ends. Apple decides who is eligible for a free trial and may limit trials to one per Apple Account.</p>
 <h3>Cancellation</h3>
-<p>You can cancel a subscription at any time through your Apple ID settings (Settings &rarr; <em>your name</em> &rarr; Subscriptions). Cancellation takes effect at the end of the current billing period; partial periods are not refunded. Removing the App from your device does not cancel your subscription.</p>
-
-<h3>Lifetime Purchase</h3>
-<p>The lifetime in-app purchase grants ongoing access to premium features for as long as Apple&rsquo;s entitlement records reflect the purchase, subject to these Terms. Lifetime access is tied to your Apple ID and may be restored on devices signed into the same Apple ID via the App&rsquo;s &ldquo;Restore Purchases&rdquo; option.</p>
-
+<p>You can cancel a subscription at any time in your Apple Account settings (on your iPhone, Settings &rarr; your name &rarr; Subscriptions), or from the App: in the You tab, tap Manage subscription on your plan card, then Manage subscription again. Cancelling takes effect at the end of the current period, and we don&rsquo;t pro-rate the rest of a period. Any refund is decided by Apple under its policies and the consumer law where you live. Deleting the App doesn&rsquo;t cancel a subscription. When Plus ends, your data stays and the App keeps working with its free features.</p>
+<h3>The One-time purchase and restoring purchases</h3>
+<p>The One-time purchase gives ongoing access to Plus, with no renewals, for as long as Apple&rsquo;s records show the purchase and we offer the App, subject to these Terms. Where the App or the App Store describes this purchase as lifetime, forever or for good, it means for that period. It&rsquo;s tied to your Apple Account. It and any active subscription can be restored on devices signed into the same Apple Account with &ldquo;Restore purchases&rdquo; in the You tab, or &ldquo;Restore purchase&rdquo; at the bottom of the Plus screen.</p>
 <h3>Refunds</h3>
-<p>All purchases are processed by Apple. Refund requests must be submitted to Apple via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> in accordance with Apple&rsquo;s policies. We do not directly issue refunds for App Store purchases.</p>
+<p>All purchases are processed by Apple, and any refund is Apple&rsquo;s decision under its policies. To ask for one, use <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. We can&rsquo;t issue refunds for App Store purchases ourselves.</p>
 
-<h2>7. Free and Paid Features</h2>
-<p>Core logging, the exercise library, the rolling 14-day heatmap, recent-workout history, sharing of workout cards, and basic dashboard statistics are available without a subscription. Premium features (which may change over time) currently include personalised insights, the full Progress tab, recommended templates, the plate calculator, achievement badges, extended heatmap lookback ranges, and detailed muscle drill-down.</p>
-<p>Where you tap a premium feature without an active subscription, the App may present a paywall. Continuing to use a paid feature requires an active subscription or lifetime entitlement.</p>
+<h2 id="features">7. Free and Plus features</h2>
+<p>Free features have no time limit and aren&rsquo;t a trial. Without Plus you can log workouts and sets, use your saved workouts and the exercise library, use the rest timer, see your whole workout list and edit past workouts, use the 14-day body map, badges and milestones, see eight weeks of progress, keep progress photos, make every share card, export your workouts, use Apple Health, and get Gino&rsquo;s planned weights and reps on the first exercise of every workout. Logging your workouts stays free for as long as we offer the App. We may change, improve or replace other free features over time (see &sect;&sect;17 and 18).</p>
+<p>Plus currently adds, among other things: Gino&rsquo;s planned weights and reps on every exercise, with warm-ups for your main lifts; a 4-week plan with an easy week for intermediate and advanced lifters; coaching tips from Gino on Home; weekly targets for each muscle; monthly notes and trends, including the main-lift trend; the body-weight trend and charts older than 90 days; the plate calculator; and the 7- and 30-day body map with detail for each muscle. What Plus includes may change over time (see &sect;&sect;17 and 18).</p>
+<p>If you tap a Plus feature without Plus, the App may show a Plus screen. Using a Plus feature needs an active subscription or the One-time purchase.</p>
 
-<h2>8. User Content</h2>
-<p>You retain all rights in the workout logs, body measurements, custom exercises, custom templates, names, avatars and other content that you create in the App (&ldquo;User Content&rdquo;). User Content is stored on your device and, if you have iCloud enabled, in your private CloudKit database. We do not access, view, monetise or use your User Content. You are solely responsible for the accuracy of any data you enter and for maintaining your own backups where appropriate.</p>
+<h2 id="content">8. Your content</h2>
+<p>You keep all rights in the workouts, sets, weigh-ins, progress photos, notes, exercises and saved workouts you create, your name and the other content you add to the App (&ldquo;Your Content&rdquo;). Your Content is stored on your device and, if iCloud is on, in your private CloudKit database. We don&rsquo;t access, view, sell or use Your Content, unless you choose to send some of it to us (for example in a support email). You are responsible for the accuracy of what you enter and for keeping your own copies where appropriate; the App&rsquo;s export lets you do this at any time.</p>
 
-<h2>9. Health, Fitness and Medical Disclaimer</h2>
-<div class="callout">
-  <strong>Read this section carefully.</strong>
-  Dribtack is provided for general informational and self-tracking purposes only. It is not a medical device and is not intended to diagnose, treat, cure, monitor, manage or prevent any disease, injury or medical condition.
+<h2 id="health">9. Health, fitness and medical disclaimer</h2>
+<div class="callout warm">
+  <span class="kicker">Please read this section carefully</span>
+  <p>Go Gino is for general information and self-tracking only. It is not a medical device and is not intended to diagnose, treat, cure, monitor, manage or prevent any disease, injury or medical condition.</p>
 </div>
 <ul>
-  <li><strong>Not medical advice.</strong> Nothing presented in the App &mdash; including suggested templates, recommended exercises, rest timers, calorie estimates, personal records, insights, heatmap intensities, bodyweight trend interpretations or notification copy &mdash; constitutes medical, diagnostic, therapeutic, nutritional or professional advice.</li>
-  <li><strong>Consult a professional.</strong> Always consult a qualified physician, physiotherapist or other appropriately licensed healthcare professional before beginning, changing or stopping any exercise programme, particularly if you are pregnant, post-partum, recovering from illness or injury, taking medication, or have a chronic medical condition.</li>
-  <li><strong>Stop if you feel unwell.</strong> If you experience pain, dizziness, shortness of breath, chest pain, faintness, or any other warning sign during exercise, stop immediately and seek medical attention.</li>
-  <li><strong>Injury filter is informational only.</strong> The App may flag certain exercises in light of injuries you self-report. These flags are heuristics and are not a clinical assessment. They do not replace the judgement of a qualified professional and may be incomplete, inaccurate or out of date.</li>
-  <li><strong>Calorie and load estimates are approximations.</strong> Calorie burn, plate calculations, one-rep-max equivalents and similar derived values are computed using simplified formulas and your self-reported data. Do not treat these numbers as clinically accurate.</li>
-  <li><strong>You exercise at your own risk.</strong> You are solely responsible for choosing exercises, weights, durations, equipment and form that are appropriate for your fitness level, environment and medical status. Form videos, descriptions and tips, where present, are educational and do not replace in-person coaching.</li>
+  <li><strong>Not medical advice.</strong> Nothing in the App, including saved workouts, suggested exercises, suggested weights, reps and warm-ups, rest times, tips, weekly targets, energy estimates, personal bests, the body map, body-weight readings or reminder text, is medical, diagnostic, therapeutic, nutritional or other professional advice. Using the App doesn&rsquo;t create a doctor-patient, physiotherapist-patient, trainer-client or any other professional relationship between you and the Publisher.</li>
+  <li><strong>Suggestions come from software.</strong> Gino&rsquo;s numbers are worked out automatically from what you log and the answers you give. They can&rsquo;t see your form, your health or how you feel that day. Always choose a weight you can lift safely, and lower it or stop whenever you need to.</li>
+  <li><strong>Your own due diligence.</strong> Before you do any exercise, whether you chose it or the App suggested it, you are responsible for checking that it suits you: that the exercise, the weight, the sets, reps and rest, and any equipment are safe for your body, your fitness and your health; that you know the correct technique (learn it from a qualified source if you don&rsquo;t); that your equipment is in good working order and your surroundings are safe; and that you use a spotter or safety equipment wherever a lift calls for it. Don&rsquo;t do an exercise only because the App suggests it, and skip or change any exercise that doesn&rsquo;t feel right for you.</li>
+  <li><strong>Talk to a professional.</strong> Check with a qualified doctor, physiotherapist or other licensed healthcare professional before starting, changing or stopping any exercise programme, especially if you&rsquo;re pregnant or have recently given birth, are recovering from illness or injury, take medication, or have a long-term medical condition.</li>
+  <li><strong>Stop if you feel unwell.</strong> If you feel pain, dizziness, shortness of breath, chest pain, faintness or any other warning sign while exercising, stop at once and get medical help.</li>
+  <li><strong>The injury filter is a guide only.</strong> The App may leave out or mark exercises based on injuries you tell it about. This is a cautious rule of thumb, not a clinical assessment, and it may be incomplete or wrong for you.</li>
+  <li><strong>Estimates are approximate.</strong> Energy burned, plate loads and similar figures are worked out with simplified formulas from the data you enter. Don&rsquo;t treat them as clinically accurate.</li>
+  <li><strong>You exercise at your own risk.</strong> Strength training and other exercise carry a risk of injury, sometimes serious, and you choose to take on that risk. You are responsible for choosing exercises, weights, durations, equipment and technique that suit your fitness, your surroundings and your health. Exercise descriptions and tips in the App are for education and don&rsquo;t replace in-person coaching. To the fullest extent the law allows, and except as &sect;11 provides, the Publisher is not responsible or liable for any injury, illness, loss or damage of any kind, including damage to property or equipment, that results from your use of the App or from any exercise or activity you do, whether or not the App suggested it.</li>
 </ul>
 
-<h2>10. &ldquo;As Is&rdquo; Disclaimer; Bugs and Defects</h2>
-<p>Dribtack is provided on an <strong>&ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo;</strong> basis. While the Publisher takes reasonable care in developing and maintaining the App, software is inherently complex and Dribtack may contain bugs, defects, errors, miscalculations, missed notifications, sync delays, data loss, inaccurate suggestions or other issues. To the maximum extent permitted by applicable law, the Publisher disclaims all express, implied or statutory warranties, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, reliability, uninterrupted availability and freedom from defects.</p>
-<p>You acknowledge specifically that:</p>
+<h2 id="as-is">10. &ldquo;As is&rdquo;; bugs and defects</h2>
+<p>Go Gino is provided <strong>&ldquo;as is&rdquo; and &ldquo;as available&rdquo;</strong>. We work to keep it reliable, but software is complex, and the App may contain bugs, defects, errors, miscalculations, missed notifications, sync delays, data loss, inaccurate suggestions or other problems. To the fullest extent the law allows, the Publisher disclaims all express, implied and statutory warranties, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, reliability, compatibility with your device or iOS version, uninterrupted availability and freedom from defects. This doesn&rsquo;t affect any consumer rights you have that can&rsquo;t be excluded.</p>
+<p>In particular, you understand that:</p>
 <ul>
-  <li>Personal records, streaks, badges and insights are computed by software and may be incorrect or fail to fire when expected.</li>
-  <li>Local notifications and reminders depend on iOS scheduling and your device permissions, and may be delayed, dropped or silenced by the operating system.</li>
-  <li>iCloud sync is operated by Apple and is subject to its availability, conflict-resolution rules (last-writer-wins) and sync windows. Concurrent edits across devices may produce unexpected results.</li>
-  <li>You should not rely solely on Dribtack for any decision relating to your health, training, recovery, nutrition or safety.</li>
+  <li>Planned weights and reps, personal bests, streaks, badges and tips are worked out by software and may be wrong or fail to appear when expected.</li>
+  <li>Reminders, the rest timer&rsquo;s notification and the Lock Screen countdown depend on iOS and your permissions, and may be delayed, dropped or silenced by the system.</li>
+  <li>iCloud sync is run by Apple and depends on its availability and its rules for resolving conflicts (the most recent change usually wins), so changes made on two devices at once may give unexpected results.</li>
+  <li>You should not rely on Go Gino alone for any decision about your health, training, recovery, nutrition or safety.</li>
 </ul>
-<p>You agree to use the App as one input among several &mdash; together with professional guidance, your own judgement and other tools as appropriate &mdash; and not as the sole authority on your training or wellbeing.</p>
+<p>You agree to use the App as one input among several, together with professional advice, your own judgement and other tools as appropriate, and not as the final word on your training or wellbeing.</p>
 
-<h2>11. Limitation of Liability</h2>
-<p>To the maximum extent permitted by applicable law, in no event shall the Publisher, its affiliates, contractors, licensors, officers, directors, employees or agents be liable for any indirect, incidental, special, consequential, exemplary or punitive damages, or for any loss of profits, revenue, data, use, goodwill, or other intangible losses, arising out of or relating to your access to or use of (or inability to use) the App, including any injury, illness, equipment damage, financial loss, lost training history, missed notification, paywall interruption or sync error, whether based in contract, tort, strict liability or any other legal theory, and whether or not the Publisher has been advised of the possibility of such damages.</p>
-<p>To the extent liability cannot be excluded but may be limited, the Publisher&rsquo;s aggregate liability to you for all claims arising out of or relating to the App or these Terms shall not exceed the greater of (a) the total amount you have paid to Apple for the App in the twelve months preceding the event giving rise to the claim, or (b) USD&nbsp;25.</p>
-<p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In those jurisdictions the above limitations apply only to the extent permitted by law, and nothing in these Terms is intended to exclude liability that cannot lawfully be excluded.</p>
+<h2 id="liability">11. Limitation of liability</h2>
+<p>Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, for fraud, or for anything else that can&rsquo;t be limited or excluded by law.</p>
+<p>Subject to that, and to the fullest extent the law allows, the Publisher and its affiliates, contractors, licensors, officers, employees and agents will not be liable for any indirect, incidental, special, consequential, exemplary or punitive damages, or for any loss of profits, revenue, data, use, goodwill or other intangible losses, arising from or related to your use of (or inability to use) the App, including (where the law allows) any injury or illness from exercise, equipment damage, financial loss, lost training history, missed notification, interruption by a Plus screen or sync error, whether based on contract, tort (including negligence), strict liability or any other legal theory, and whether or not the Publisher was told such damages were possible.</p>
+<p>Where liability can&rsquo;t be excluded but can be limited, the Publisher&rsquo;s total liability to you for all claims arising from or related to the App or these Terms will not exceed the greater of (a) the total you paid Apple for the App and its in-app purchases in the twelve months before the event that gave rise to the claim, or (b) USD&nbsp;25.</p>
+<p>Some places don&rsquo;t allow certain damages to be excluded or limited. There, these limits apply only as far as the law allows.</p>
 
-<h2>12. Indemnification</h2>
-<p>You agree to indemnify, defend and hold harmless the Publisher and its affiliates from and against any claims, damages, liabilities, losses, costs and expenses (including reasonable legal fees) arising out of or related to (a) your use of the App, (b) your User Content, (c) your violation of these Terms, or (d) your violation of any law or the rights of any third party.</p>
+<h2 id="indemnity">12. Indemnification</h2>
+<p>To the extent the law allows, you agree to indemnify and hold harmless the Publisher against claims, damages, losses and reasonable legal costs caused by your breach of these Terms, your misuse of the App, or your breach of any law or of anyone else&rsquo;s rights (including through Your Content). This doesn&rsquo;t apply where your local consumer law forbids it.</p>
 
-<h2>13. Intellectual Property</h2>
-<p>The App, including its source code, design, name, logo, gradients, icons, illustrations, exercise library descriptions, templates and other materials provided by the Publisher, is owned by the Publisher or its licensors and is protected by copyright, trademark and other intellectual-property laws. You are granted a limited, personal, non-exclusive, non-transferable, revocable licence to use the App in accordance with these Terms and Apple&rsquo;s standard EULA. You may not copy, modify, distribute, sell, lease, reverse-engineer, decompile or create derivative works of the App, except to the extent applicable law expressly permits.</p>
+<h2 id="ip">13. Intellectual property</h2>
+<p>The App, including its source code, design, name, logo, the Gino character and his illustrations, icons, the exercise library and its descriptions, saved-workout plans and other material provided by the Publisher, belongs to the Publisher or its licensors and is protected by copyright, trademark and other intellectual-property laws. Your licence to use the App is the one granted under the Apple EULA (see &sect;1), and these Terms add to it. Nothing else is licensed or transferred to you. Beyond what that licence or the law expressly allows, you may not copy, modify, distribute, sell, lease, reverse-engineer, decompile or make derivative works of the App.</p>
 
-<h2>14. Acceptable Use</h2>
+<h2 id="use">14. Acceptable use</h2>
 <p>You agree not to:</p>
 <ul>
-  <li>Use the App for any unlawful purpose or in violation of these Terms;</li>
-  <li>Attempt to circumvent the App&rsquo;s subscription gating or to gain unauthorised access to premium features;</li>
-  <li>Interfere with, disrupt or attempt to compromise the integrity, security or performance of the App or its underlying services (including iCloud, StoreKit and Apple&rsquo;s notification service);</li>
-  <li>Use the App in a manner that could disable, overburden or impair Apple&rsquo;s services;</li>
-  <li>Misrepresent your age, identity or health status in a way that affects safety-relevant features (such as the injury filter).</li>
+  <li>Use the App for anything unlawful or in breach of these Terms;</li>
+  <li>Try to get around the App&rsquo;s Plus checks or otherwise get Plus features without paying for them;</li>
+  <li>Interfere with, disrupt or try to compromise the App or the services it relies on (including iCloud, StoreKit, Apple Health and Apple&rsquo;s notification service);</li>
+  <li>Use the App in a way that could disable, overload or impair Apple&rsquo;s services;</li>
+  <li>Misstate your age, experience or health in a way that affects safety-related features such as the injury filter or suggested weights.</li>
 </ul>
 
-<h2>15. Privacy</h2>
-<p>Your use of the App is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which describes what information is processed locally, what is stored in your private iCloud database, and what (if anything) is transmitted off-device. Dribtack is designed to keep your workout data on your device and in your iCloud account; the Publisher does not maintain a separate cloud copy of your User Content.</p>
+<h2 id="privacy">15. Privacy</h2>
+<p>Your use of the App is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which explains what is processed on your device, what is stored in your private iCloud, what is shared with Apple Health if you turn it on, and the limited purchase analytics (through RevenueCat) that leave your device. The Publisher doesn&rsquo;t keep a separate copy of Your Content.</p>
 
-<h2>16. Third-Party Services</h2>
-<p>The App relies on services provided by Apple Inc., including the App Store, StoreKit (for purchases and entitlements), iCloud and CloudKit (for sync), and the iOS notification system. These services are governed by Apple&rsquo;s own terms and privacy policies. The Publisher is not responsible for the availability, accuracy, content or practices of third-party services, and any disputes regarding such services should be raised with the relevant provider.</p>
-<p>The App also uses RevenueCat to observe in-app purchase transactions for the limited sales analytics described in our <a href="privacy-policy.html">Privacy Policy</a>. RevenueCat&rsquo;s processing is governed by its own terms and privacy policy.</p>
-<p>Apple is not a party to these Terms but, as required by Apple&rsquo;s standard licensed-application terms, is a third-party beneficiary of these Terms with the right to enforce them against you.</p>
+<h2 id="third-party">16. Third-party services</h2>
+<p>The App relies on services from Apple Inc., including the App Store, StoreKit (for purchases), iCloud and CloudKit (for sync), Apple Health (if you turn it on), Live Activities and the iOS notification system. These are governed by Apple&rsquo;s own terms and privacy policies. The Publisher isn&rsquo;t responsible for the availability, accuracy, content or practices of third-party services; please raise any problem with them with the provider concerned.</p>
+<p>The App also uses RevenueCat for purchase analytics. When you open the App, whether or not you buy anything, RevenueCat receives a random identifier made by the App, your device&rsquo;s vendor identifier, your IP address and basic app and device details, plus the details of any purchase, restore or renewal. It never receives your name, your email, Health data or anything you log. Our <a href="privacy-policy.html">Privacy Policy</a> has the details. RevenueCat&rsquo;s processing is also governed by its own terms and privacy policy.</p>
+<p>These Terms are between you and the Publisher, not Apple. Apple isn&rsquo;t responsible for the App or its content and has no obligation to provide maintenance or support for it. If the App fails to meet any warranty that applies to it, you may tell Apple, and Apple will refund the price you paid for the App, if any; to the fullest extent the law allows, Apple has no other warranty obligation for the App. The Publisher, not Apple, is responsible for dealing with any claims about the App or your use of it, including product-liability claims, claims that the App doesn&rsquo;t meet a legal or regulatory requirement, consumer-protection claims, and any claim that the App or your use of it infringes someone else&rsquo;s intellectual property.</p>
+<p>You confirm that you aren&rsquo;t located in a country subject to a U.S. Government embargo or designated by the U.S. Government as a &ldquo;terrorist supporting&rdquo; country, and that you aren&rsquo;t on any U.S. Government list of prohibited or restricted parties.</p>
+<p>Apple is not a party to these Terms but, as Apple&rsquo;s standard licensed-application terms require, is a third-party beneficiary of them with the right to enforce them against you.</p>
 
-<h2>17. Termination</h2>
-<p>You may stop using the App and uninstall it at any time. We may suspend or terminate your access to the App or to specific features at any time, with or without notice, including if we reasonably believe you have violated these Terms or applicable law, or if continued provision becomes commercially or technically impractical. Sections that by their nature should survive termination (including &sect;&sect;9&ndash;13, 15 and 19) will survive.</p>
-<p>If you wish to delete your data from your device and iCloud, you may use the in-App &ldquo;Manage Data &rarr; Delete All Data&rdquo; control. Deletion is propagated as iCloud tombstones across devices signed into the same Apple ID and is irreversible.</p>
+<h2 id="termination">17. Termination</h2>
+<p>You may stop using the App and delete it at any time. We may suspend or end your access to the App if we reasonably believe you have broken these Terms or the law, or where we must for legal or security reasons. We may stop offering the App at any time. We may also change or remove features, including Plus features, for valid reasons such as changes in the law or in Apple&rsquo;s services, security, or keeping the App working and improving it. If we stop offering the App or remove a Plus feature, we&rsquo;ll tell you beforehand in the App or on its App Store page where we reasonably can. Where you lose something you paid for, you can ask Apple for a refund under its policies, and your mandatory consumer rights are not affected. Sections that by their nature should survive termination (including &sect;&sect;9 to 13, 15 and 19) will survive.</p>
+<p>Deleting the App removes only the copy on that device; the copy in your iCloud stays and comes back if you reinstall. To delete everything, use <strong>You &rarr; Delete all data</strong> in the App while signed into iCloud with iCloud on for Go Gino. The deletion carries through iCloud to your other devices signed into the same Apple Account and can&rsquo;t be undone. It doesn&rsquo;t remove workouts already saved to Apple Health (delete those in the Health app) or your purchases. Device backups (iCloud Backup or a computer backup) include the App&rsquo;s data, like any app&rsquo;s.</p>
 
-<h2>18. Changes to the App or Terms</h2>
-<p>We may update the App and these Terms from time to time. When we update the Terms, we will revise the &ldquo;Last updated&rdquo; date at the top of this page. We do not undertake to notify you individually of any change, and you are responsible for reviewing these Terms periodically to remain aware of any updates. Your continued use of the App after the updated Terms take effect constitutes your acceptance of the changes. If you do not agree to the updated Terms, you must stop using the App.</p>
+<h2 id="changes">18. Changes to the App or Terms</h2>
+<p>We may update the App and these Terms from time to time, for example to reflect changes to the App, to the law or to Apple&rsquo;s services. When we update the Terms, we&rsquo;ll change the &ldquo;Last updated&rdquo; date at the top of this page. When we make an important change to these Terms, we&rsquo;ll also mention it in the App or in the App Store release notes before it takes effect, unless the change is needed sooner for legal or security reasons. If you keep using the App after updated Terms take effect, you accept the changes. If you don&rsquo;t agree to them, stop using the App and cancel any subscription before it renews.</p>
 
-<h2>19. Governing Law and Dispute Resolution</h2>
-<p>These Terms are governed by the laws of the Islamic Republic of Pakistan, without regard to its conflict-of-laws rules. Subject to any non-waivable consumer rights you may have in your country of residence, you and the Publisher agree that any dispute arising out of or relating to these Terms or the App shall be resolved exclusively in the competent courts of Pakistan.</p>
-<p>Nothing in this section limits any mandatory consumer-protection rights you have under the law of your country of residence, including any rights to bring proceedings in your local courts.</p>
+<h2 id="law">19. Governing law and disputes</h2>
+<p>These Terms are governed by the laws of the Islamic Republic of Pakistan, without regard to its conflict-of-laws rules. Subject to any consumer rights you can&rsquo;t give up in your country of residence, you and the Publisher agree that any dispute arising from or related to these Terms or the App will be settled only in the competent courts of Pakistan.</p>
+<p>This section governs these Terms. Your licence to use the App is governed by the Apple EULA, including its own governing-law section.</p>
+<p>If you have a problem with the App, please email us first, so we can try to sort it out.</p>
+<p>These Terms are written in English. If we provide a translation and it differs, the English version prevails, unless your consumer law requires the version in your language.</p>
+<p>If a court finds any part of these Terms invalid or unenforceable, that part applies as far as the law allows and the rest stays in force. If we don&rsquo;t enforce a right straight away, we haven&rsquo;t given it up. We may transfer these Terms to anyone who takes over the App, and that won&rsquo;t reduce your rights under them. You may not transfer your rights or duties under these Terms without our written consent.</p>
+<p>Nothing in this section limits any mandatory consumer-protection rights you have under the law of your country of residence, including any right to bring proceedings in your local courts.</p>
 
-<h2>20. Contact</h2>
-<p>For any questions or to get in touch, reach out at:</p>
-<p>
-  Asad Nawaz<br>
-  Email: <a href="mailto:turretspire@gmail.com">turretspire@gmail.com</a>
-</p>
+<h2 id="contact">20. Contact</h2>
+<div class="contact-block">
+  <p>Email: <a href="mailto:turretspire@gmail.com">turretspire@gmail.com</a></p>
+</div>
 
 <footer>
-  &copy; 2026 Asad Nawaz. All rights reserved. Dribtack and the Dribtack logo are trademarks of the Publisher.
+  <p>&copy; 2026 Go Gino. All rights reserved.</p>
+  <p>Go Gino, the Go Gino logo and the Gino character are trademarks of the Publisher.</p>
 </footer>
 
 </div>
+
 </body>
 </html>
