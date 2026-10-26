@@ -3,188 +3,386 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dribtack — Support</title>
+<meta name="color-scheme" content="light dark">
+<title>Go Gino: Support</title>
+<meta name="description" content="Help and answers for Go Gino, the workout tracker with Gino the pumpkin coach.">
+<link rel="icon" type="image/png" href="appIcon.png">
+<link rel="apple-touch-icon" href="appIcon.png">
 <style>
+  @font-face {
+    font-family: 'Baloo 2';
+    src: url('fonts/Baloo2-VF.ttf') format('truetype');
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Nunito';
+    src: url('fonts/Nunito-VF.ttf') format('truetype');
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+  }
   :root {
-    --peach: #FFE0D0;
-    --rose: #FFB5A7;
-    --coral: #FF7E6B;
-    --coral-soft: #FFA994;
-    --lavender: #B8A9C9;
-    --bg: #FFF8F5;
-    --bg-2: #FFF0E8;
-    --ink: #2A1F26;
-    --ink-2: #5A4751;
-    --ink-3: #8C7A85;
-    --line: rgba(184, 169, 201, 0.28);
-    --line-strong: rgba(184, 169, 201, 0.45);
-    --card: rgba(255, 255, 255, 0.62);
-    --card-strong: rgba(255, 255, 255, 0.85);
-    --info-bg: #EAF4F0;
-    --info-border: #7ED6A0;
+    --ground: #FFFFFF;
+    --panel: #F4F5FE;
+    --panel-strong: #EEF0FE;
+    --raised: #FFFFFF;
+    --border: #E3E4F2;
+    --rule: #EEEFF5;
+    --ink: #1C1E2B;
+    --ink-2: #3F4458;
+    --muted: #5C6274;
+    --accent-text: #1D6B91;
+    --done: #89CFF0;
+    --done-deep: #3B8FBF;
+    --action: #FF953A;
+    --action-lip: #E56B1F;
+    --action-text: #A94800;
+    --on-accent: #1C1E2B;
+    --bubble: #EDF6FC;
+    --bubble-border: #D5E9F7;
+    --coach-bg: #F1F3FE;
+    --coach-line: #B8C3F6;
+    --coach-text: #3453D3;
+    --celebrate-bg: #FFF4E8;
+    --celebrate-line: #FFD3A8;
+    --celebrate-text: #A94800;
+    --vine: #60BC71;
+    --vine-deep: #2D7B44;
+    --leaf: #A6DF74;
+    --sky-top: #DDF1FB;
+    --shadow: rgba(28, 30, 43, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #10101F;
+      --panel: #1B1B2E;
+      --panel-strong: #232540;
+      --raised: #2A2A42;
+      --border: #2C2D46;
+      --rule: #23243A;
+      --ink: #F2F3FA;
+      --ink-2: #C7CAE0;
+      --muted: #9EA2BF;
+      --accent-text: #89CFF0;
+      --action-lip: #BE551C;
+      --action-text: #FFA95C;
+      --bubble: #15263A;
+      --bubble-border: #24405A;
+      --coach-bg: #1A1E3E;
+      --coach-line: #37459B;
+      --coach-text: #8FA8FF;
+      --celebrate-bg: #2A1F17;
+      --celebrate-line: #5A3A1E;
+      --celebrate-text: #FFA95C;
+      --sky-top: #173247;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: var(--ground);
+    font-family: "Nunito", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
     line-height: 1.6;
     font-size: 16px;
-    background: var(--bg);
+    -webkit-text-size-adjust: 100%;
   }
   body {
     background:
-      radial-gradient(1100px 600px at -10% -10%, rgba(255, 181, 167, 0.55) 0%, rgba(255, 181, 167, 0) 60%),
-      radial-gradient(900px 600px at 110% 5%, rgba(184, 169, 201, 0.35) 0%, rgba(184, 169, 201, 0) 55%),
-      radial-gradient(900px 700px at 50% 110%, rgba(255, 224, 208, 0.55) 0%, rgba(255, 224, 208, 0) 60%),
-      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      linear-gradient(180deg, var(--sky-top) 0px, var(--ground) 420px);
     min-height: 100vh;
   }
   .wrap {
-    max-width: 820px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 64px 28px 80px;
+    padding: 40px 16px 72px;
+  }
+  @media (min-width: 560px) {
+    .wrap { padding: 56px 28px 80px; }
+  }
+  .display {
+    font-family: "Baloo 2", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", sans-serif;
+    font-weight: 800;
+  }
+  a {
+    color: var(--accent-text);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--done);
+  }
+  a:hover { text-decoration-color: var(--accent-text); }
+  p, li { color: var(--ink-2); }
+  strong { color: var(--ink); font-weight: 800; }
+
+  /* ---------- BRAND ---------- */
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .app-icon {
+    display: block;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 18px rgba(59, 143, 191, 0.28));
+  }
+  .wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wordmark .name {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .wordmark svg { display: block; margin-top: 2px; }
+  .kicker {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  /* ---------- SMALL TOP BAR (legal pages) ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .topbar .mini-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .topbar .mini-brand img { width: 40px; height: 40px; display: block; }
+  .topbar .mini-brand span {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .back-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .back-pill:hover { background: var(--panel-strong); }
+
+  /* ---------- HEADINGS ---------- */
+  h1 {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.1;
+    margin: 10px 0 10px;
+    color: var(--ink);
+  }
+  h2 {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 1.15;
+    margin: 48px 0 14px;
+    color: var(--ink);
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 20px 0 6px;
+    color: var(--ink);
+  }
+  .meta { color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* ---------- CARDS ---------- */
+  .card {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 18px 20px;
+  }
+  .callout {
+    border-radius: 22px;
+    padding: 18px 20px;
+    margin: 20px 0;
+    border: 1.5px solid var(--bubble-border);
+    background: var(--bubble);
+  }
+  .callout .kicker { display: block; margin-bottom: 6px; }
+  .callout p { margin: 0; color: var(--ink); font-weight: 700; }
+  .callout.warm {
+    background: var(--celebrate-bg);
+    border-color: var(--celebrate-line);
+  }
+  .callout.warm .kicker { color: var(--celebrate-text); }
+
+  /* ---------- TAGS ---------- */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 8px;
+    line-height: 1.2;
+  }
+  .tag.free { background: var(--raised); color: var(--muted); border: 1.5px solid var(--border); }
+  .tag.plus { background: var(--action); color: var(--on-accent); box-shadow: 0 2px 0 var(--action-lip); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 1.5px solid var(--rule);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  footer p { color: var(--muted); margin: 4px 0; }
+
+  /* ---------- MOTION ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise { animation: rise 0.55s cubic-bezier(.34, 1.56, .64, 1) both; }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; }
+    * { transition: none !important; }
   }
 
   /* ---------- HERO ---------- */
   .hero {
     text-align: center;
-    margin-bottom: 56px;
-    animation: fadeInUp 0.7s ease-out both;
+    margin-bottom: 8px;
   }
-  .brand-row {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 26px;
-  }
-  .app-icon {
-    width: 92px;
-    height: 92px;
-    border-radius: 22px;
-    box-shadow:
-      0 14px 40px rgba(255, 126, 107, 0.30),
-      0 4px 12px rgba(42, 31, 38, 0.10);
-    display: block;
-    flex-shrink: 0;
-  }
-  .brand {
-    background: linear-gradient(90deg, var(--coral) 0%, var(--rose) 50%, var(--lavender) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 800;
-    font-size: 46px;
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-  h1.page-title {
-    font-size: 32px;
-    margin: 0 0 12px;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-  }
+  .hero .brand-row { margin-bottom: 26px; }
+  .hero .kicker { margin: 0; }
+  .hero h1 { font-size: 38px; margin-top: 4px; }
   .tagline {
+    font-size: 17px;
+    font-weight: 700;
     color: var(--ink-2);
-    font-size: 16px;
     max-width: 540px;
     margin: 0 auto;
   }
 
-  /* ---------- SECTION HEADERS ---------- */
-  h2 {
-    font-size: 24px;
-    margin: 56px 0 18px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  h2::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 22px;
-    border-radius: 3px;
-    background: linear-gradient(180deg, var(--coral), var(--lavender));
-  }
-
-  p, li { color: var(--ink); }
-  a {
-    color: var(--coral);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 126, 107, 0.25);
-    transition: border-color 0.15s ease;
-  }
-  a:hover { border-bottom-color: var(--coral); }
-
-  /* ---------- ABOUT CARDS ---------- */
+  /* ---------- ABOUT ---------- */
   .about-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin: 22px 0 6px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 22px 0 0;
   }
   .about-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 18px 20px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    background: var(--panel);
+    border-radius: 20px;
+    padding: 14px 16px;
   }
-  .about-card:hover {
-    transform: translateY(-2px);
-    background: var(--card-strong);
-    box-shadow: 0 8px 22px rgba(255, 126, 107, 0.10);
+  .about-card .kicker { font-size: 11px; display: block; margin-bottom: 4px; }
+  .about-card .text { font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.35; }
+
+  /* ---------- FREE AND PLUS ---------- */
+  .plans {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
-  .about-card .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--coral);
-    margin-bottom: 6px;
+  @media (min-width: 640px) {
+    .plans { grid-template-columns: 1fr 1fr; }
   }
-  .about-card .text {
+  .plan-card {
+    border-radius: 24px;
+    padding: 18px 20px 8px;
+    background: var(--panel);
+  }
+  .plan-card.plus {
+    background: var(--coach-bg);
+    box-shadow: inset 0 0 0 1.5px var(--coach-line);
+  }
+  .plan-card h3 {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 10px 0 4px;
+  }
+  .plan-card ul { list-style: none; padding: 0; margin: 10px 0; }
+  .plan-card li {
+    position: relative;
+    padding: 0 0 0 30px;
+    margin: 0 0 10px;
     font-size: 15px;
+    font-weight: 700;
     color: var(--ink);
-    font-weight: 500;
+    line-height: 1.45;
+  }
+  .plan-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--done) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 3 6-6.6' fill='none' stroke='%231C1E2B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+  }
+  .plan-card.plus li::before { background-color: var(--action); }
+  .fine {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 14px 2px 0;
   }
 
   /* ---------- FAQ ---------- */
-  .faq-list { margin-top: 8px; }
+  .faq-list { margin-top: 6px; }
   details {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  details:hover {
-    border-color: var(--line-strong);
+    background: var(--panel);
+    border-radius: 20px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
   }
   details[open] {
-    background: var(--card-strong);
-    border-color: rgba(255, 126, 107, 0.30);
-    box-shadow: 0 6px 20px rgba(255, 126, 107, 0.08);
+    background: var(--panel-strong);
   }
   details summary {
-    font-weight: 600;
-    cursor: pointer;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.45;
     color: var(--ink);
+    cursor: pointer;
     list-style: none;
     position: relative;
-    padding-right: 36px;
-    font-size: 15.5px;
-    line-height: 1.5;
+    padding-right: 44px;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
     user-select: none;
+    -webkit-user-select: none;
   }
   details summary::-webkit-details-marker { display: none; }
   details summary::after {
@@ -192,303 +390,338 @@
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    margin-top: -16px;
     border-radius: 50%;
-    background:
-      linear-gradient(135deg, var(--coral), var(--coral-soft));
-    background-size: 8px 2px, 2px 8px;
-    box-shadow: 0 2px 6px rgba(255, 126, 107, 0.30);
-    transition: transform 0.25s ease, background 0.25s ease;
+    background: var(--action) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M14 8.5v11M8.5 14h11' fill='none' stroke='%231C1E2B' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
+    box-shadow: 0 3px 0 var(--action-lip);
+    transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
   }
-  details summary::before {
-    content: "+";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 24px;
-    height: 24px;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: center;
-    z-index: 1;
-    transition: transform 0.25s ease, content 0s;
-  }
-  details[open] summary::before {
-    transform: translate(0, -50%) rotate(45deg);
-  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details summary:focus-visible { outline: 2.5px solid var(--done-deep); outline-offset: 6px; border-radius: 8px; }
   details .answer {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    color: var(--ink-2);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1.5px solid var(--border);
     font-size: 15px;
     line-height: 1.65;
   }
   details .answer p { margin: 8px 0; }
   details .answer p:first-child { margin-top: 0; }
   details .answer p:last-child { margin-bottom: 0; }
-  details .answer strong { color: var(--ink); }
+  .path {
+    font-weight: 800;
+    color: var(--ink);
+    white-space: nowrap;
+  }
 
   /* ---------- CONTACT ---------- */
   .contact-card {
-    background:
-      linear-gradient(135deg, rgba(255, 224, 208, 0.7), rgba(184, 169, 201, 0.20));
-    border: 1px solid rgba(255, 126, 107, 0.25);
-    border-radius: 20px;
-    padding: 24px 26px;
-    margin: 22px 0 10px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 28px rgba(255, 126, 107, 0.10);
-  }
-  .contact-card p { margin: 0 0 10px; }
-  .contact-card p:last-child { margin-bottom: 0; }
-  .contact-email {
-    display: inline-block;
+    position: relative;
+    background: var(--bubble);
+    border: 1.5px solid var(--bubble-border);
+    border-radius: 24px;
+    padding: 20px 22px 22px;
     margin-top: 6px;
-    padding: 10px 18px;
-    background: white;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 126, 107, 0.30);
-    font-weight: 600;
-    color: var(--coral);
+  }
+  .contact-card p { margin: 0 0 14px; color: var(--ink); font-weight: 700; }
+  .contact-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background: var(--action);
+    color: var(--on-accent);
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 17px;
     text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 0 var(--action-lip);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    word-break: break-all;
   }
-  .contact-email:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(255, 126, 107, 0.18);
-    border-bottom: 1px solid rgba(255, 126, 107, 0.30);
-  }
-  .bug-tip {
-    font-size: 13.5px;
-    color: var(--ink-3);
-    margin-top: 14px;
-  }
+  .contact-email:active { transform: translateY(4px); box-shadow: 0 0 0 var(--action-lip); }
+  .bug-tip { font-size: 14px; color: var(--muted); margin-top: 14px; }
 
-  /* ---------- DOC LINKS ---------- */
-  .doc-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 14px;
-  }
+  /* ---------- LEGAL LINKS ---------- */
+  .doc-links { display: flex; flex-wrap: wrap; gap: 10px; }
   .doc-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: var(--card);
-    border: 1px solid var(--line-strong);
+    gap: 10px;
+    min-height: 50px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: var(--panel);
     color: var(--ink);
+    font-weight: 800;
+    font-size: 15px;
     text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 14px;
-    font-size: 14.5px;
-    font-weight: 500;
-    transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
-  .doc-link:hover {
-    background: white;
-    transform: translateY(-1px);
-    border-color: var(--coral);
-    border-bottom-color: var(--coral);
-  }
-  .doc-link::before {
+  .doc-link:hover { background: var(--panel-strong); }
+  .doc-link::after {
     content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--coral);
-    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2.5px solid var(--muted);
+    border-top: 2.5px solid var(--muted);
+    transform: rotate(45deg);
+    margin-left: 2px;
+  }
+  @media (min-width: 640px) {
+    .about-cards { grid-template-columns: repeat(4, 1fr); }
   }
 
-  /* ---------- FOOTER ---------- */
-  footer {
-    margin-top: 64px;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-    color: var(--ink-3);
-    font-size: 13px;
-    text-align: center;
-  }
-
-  /* ---------- ANIMATIONS ---------- */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 540px) {
-    .wrap { padding: 44px 22px 64px; }
-    .brand-row { flex-direction: column; gap: 14px; }
-    .app-icon { width: 96px; height: 96px; }
-    .brand { font-size: 42px; }
-    h1.page-title { font-size: 28px; }
-    h2 { font-size: 21px; margin-top: 44px; }
-  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header class="hero">
+<header class="hero rise">
   <div class="brand-row">
-    <img class="app-icon" src="appIcon.png" alt="Dribtack app icon">
-    <div class="brand">Dribtack</div>
+    <img class="app-icon" src="appIcon.png" alt="Go Gino app icon: Gino, a round pumpkin in a sky-blue sweatband">
+    <div class="wordmark">
+      <span class="name">Go Gino</span>
+      <svg width="154" height="16" viewBox="0 0 220 22" aria-hidden="true" focusable="false" style="overflow:visible"><path d="M6 13 Q104 1 192 11" fill="none" stroke="#2D7B44" stroke-width="8" stroke-linecap="round"/><path d="M6 13 Q104 1 192 11" fill="none" stroke="#60BC71" stroke-width="4.4" stroke-linecap="round"/><path d="M190 10 C196 1 209 0 214 4 C209 12 199 14 190 10 Z" fill="#A6DF74" stroke="#2D7B44" stroke-width="2" stroke-linejoin="round"/></svg>
+    </div>
   </div>
-  <h1 class="page-title">Support &amp; FAQs</h1>
-  <p class="tagline">Everything you need to get started, troubleshoot, or get in touch about Dribtack &mdash; the calmer, prettier way to log your workouts.</p>
+  <p class="kicker">Support</p>
+  <h1>Help and answers</h1>
+  <p class="tagline">Plan your workouts, log every set, and watch your week grow. Here&rsquo;s how Go Gino works, what&rsquo;s free, and how to reach us.</p>
 </header>
 
-<h2>About Dribtack</h2>
-<p>Dribtack is a premium iOS workout tracker built around a body-centric muscle heatmap. As you log workouts, the muscles you trained light up and gradually fade between sessions, giving you an at-a-glance view of which areas have been worked recently and which have gone cold. On top of that core loop, Dribtack offers an exercise library of 150+ movements, auto-generated workout templates tailored to your split and goals, smart rest timers, personal-record tracking, achievement badges, a plate calculator, and a clean Progress tab that summarises your training in plain language rather than spreadsheet-style charts.</p>
-<p>Dribtack is designed to keep your data on your device and in your private iCloud account &mdash; there is no Dribtack account to create, no server-side database of users, and no contact details collected. Sync happens automatically across your Apple devices when you sign into iCloud.</p>
+<h2>About Go Gino</h2>
+<p>Go Gino is a workout tracker for iPhone with a coach on your side. Gino, a round pumpkin in a sky-blue sweatband, builds your saved workouts from a two-minute setup, plans your weights and reps, cheers when you beat last time, and grows a pumpkin on your week for every day you work out.</p>
+<p>Under the friendly face is a real training log: 165 built-in exercises plus any you add, warm-ups, drop sets and supersets, a rest timer that shows on your Lock Screen, a body map that colours every muscle you worked, personal bests, badges, progress photos, and progress that&rsquo;s explained in plain words.</p>
+<p>Your workouts stay on your iPhone and in your own private iCloud. There&rsquo;s no Go Gino account to create and no server of ours holding your data.</p>
 
 <div class="about-cards">
-  <div class="about-card">
-    <div class="label">Platform</div>
-    <div class="text">iOS 17+ &middot; iPhone</div>
-  </div>
-  <div class="about-card">
-    <div class="label">Sync</div>
-    <div class="text">Private iCloud (CloudKit)</div>
-  </div>
-  <div class="about-card">
-    <div class="label">Account</div>
-    <div class="text">No sign-up required</div>
-  </div>
-  <div class="about-card">
-    <div class="label">Pricing</div>
-    <div class="text">Free core &middot; Weekly, Yearly &amp; Lifetime plans</div>
-  </div>
+  <div class="about-card"><span class="kicker">Device</span><div class="text">iPhone, iOS 18 or later</div></div>
+  <div class="about-card"><span class="kicker">Sync</span><div class="text">Your private iCloud, no account</div></div>
+  <div class="about-card"><span class="kicker">Languages</span><div class="text">English, Español, Português</div></div>
+  <div class="about-card"><span class="kicker">Price</span><div class="text">Free with no time limit, Plus if you like</div></div>
 </div>
 
-<h2>Frequently Asked Questions</h2>
+<h2 id="plans">Free and Plus</h2>
+<div class="plans">
+  <div class="plan-card">
+    <span class="tag free">Free</span>
+    <h3>Free, with no time limit</h3>
+    <ul>
+      <li>Log every set: weights, reps, times and distances, with warm-ups, drop sets and supersets</li>
+      <li>A rest timer that keeps counting on your Lock Screen and in the Dynamic Island</li>
+      <li>Your plan: saved workouts built from your answers, ready to start, edit and make your own</li>
+      <li>Gino plans the first exercise of every workout, weights and reps included</li>
+      <li>Your whole workout history, with editing and logging past workouts</li>
+      <li>The 14-day body map, badges and milestones, and eight weeks of progress</li>
+      <li>Progress photos and a before-and-after card</li>
+      <li>Share cards, spreadsheet export and Apple Health</li>
+    </ul>
+  </div>
+  <div class="plan-card plus">
+    <span class="tag plus">Plus</span>
+    <h3>Go Gino Plus</h3>
+    <ul>
+      <li>Gino plans the weight and reps of every exercise, with warm-ups for your main lifts, and adjusts as you get stronger</li>
+      <li>A 4-week plan that builds up, then gives you an easy week (intermediate and advanced lifters)</li>
+      <li>Coaching tips from Gino</li>
+      <li>Weekly targets for every muscle</li>
+      <li>This month&rsquo;s notes and how your main lifts are trending</li>
+      <li>Your body-weight trend, and charts older than 90 days</li>
+      <li>The plate calculator</li>
+      <li>The 7-day and 30-day views of the body map, and the detail for each muscle</li>
+    </ul>
+  </div>
+</div>
+<p class="fine">Plus comes as a Weekly or Yearly subscription or a One-time purchase. Prices come from the App Store in your country and currency, and the App shows them before you buy. Free features have no time limit and aren&rsquo;t a trial, and logging your workouts stays free, always. What each plan includes can change over time, as the <a href="terms-and-conditions.html">Terms and Conditions</a> explain.</p>
+
+<h2>Questions</h2>
 
 <div class="faq-list">
 
 <details>
-  <summary>Do I need an account to use Dribtack?</summary>
+  <summary>Do I need an account?</summary>
   <div class="answer">
-    <p>No. Dribtack does not have its own account system. You complete a short onboarding the first time you open the App and your data is saved on your device. If you are signed into iCloud, your data also syncs to your private iCloud database so that it is preserved across your Apple devices.</p>
+    <p>No. Go Gino has no account of its own. The first time you open it, a setup of about two minutes asks how you like to train, and Gino builds your saved workouts from your answers. Everything is saved on your iPhone, and if you&rsquo;re signed into iCloud it&rsquo;s also kept in your private iCloud, so it&rsquo;s there on any other iPhone signed into the same Apple Account where you use Go Gino.</p>
   </div>
 </details>
 
 <details>
-  <summary>What&rsquo;s the difference between the free and paid versions?</summary>
+  <summary>What&rsquo;s free, and what does Plus add?</summary>
   <div class="answer">
-    <p>The free version includes the full workout-logging flow, the exercise library, the rolling 14-day muscle heatmap, the dashboard with weekly goal ring and streak, recent workouts, the smart rest timer, and the share-card feature.</p>
-    <p>A subscription unlocks the coaching layer: personalised insights, the full Progress tab, recommended templates, the plate calculator, achievement badges, extended heatmap lookback (7-day and 30-day), and a tap-to-explore muscle detail sheet.</p>
+    <p>Logging your workouts stays free, always. Your saved workouts, your whole workout list, badges, export, Apple Health and every share card are free too, with no time limit, and none of them is a trial. Gino plans the first exercise of every workout for free. With Plus he plans every exercise, runs your 4-week plan if you&rsquo;re an intermediate or advanced lifter, and gives you his coaching tips. The full list is under <a href="#plans">Free and Plus</a>.</p>
   </div>
 </details>
 
 <details>
   <summary>How does the free trial work?</summary>
   <div class="answer">
-    <p>The Weekly and Yearly subscriptions both come with a 3-day free trial for eligible new users. You will not be charged during the trial period. If you do not cancel before the trial ends, the subscription begins automatically and your Apple ID is charged the standard rate.</p>
-    <p>The Lifetime plan is a one-time purchase and does not include a trial &mdash; payment is taken at the time of purchase.</p>
+    <p>The Weekly and Yearly plans can come with a free trial for eligible new users. The App reads the trial from the App Store, so the length shown on the plan and on Apple&rsquo;s purchase sheet is the one you get, and &ldquo;No payment due now&rdquo; appears above the button while the plan you picked starts with a free trial.</p>
+    <p>Nothing is charged until the trial ends. If you don&rsquo;t cancel at least 24 hours before it ends, the subscription starts and your Apple Account is charged the plan&rsquo;s price. While a trial runs, its end date is on your plan card in the You tab. A trial applies to the subscriptions only: the One-time purchase has no trial.</p>
   </div>
 </details>
 
 <details>
   <summary>How do I cancel my subscription?</summary>
   <div class="answer">
-    <p>Subscriptions are managed by Apple, not by Dribtack. To cancel, open the iOS <strong>Settings</strong> app, tap your name at the top, then <strong>Subscriptions</strong>, find Dribtack, and tap Cancel. Cancellation takes effect at the end of the current billing period.</p>
-    <p>Removing the App from your device does not cancel the subscription. You can also reach Subscription Management from inside the App via Profile &rarr; Subscription.</p>
+    <p>Apple manages subscriptions. Open the iOS Settings app, tap your name, then <strong>Subscriptions</strong>, choose Go Gino and tap Cancel Subscription. Or, in the App, open <span class="path">You</span>, tap <strong>Manage subscription</strong> on your plan card, then <strong>Manage subscription</strong> again.</p>
+    <p>Cancelling takes effect at the end of the current period. Deleting the App doesn&rsquo;t cancel a subscription.</p>
+    <p>Refunds are Apple&rsquo;s decision under its own policies, and we can&rsquo;t issue them ourselves. You can ask Apple for one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
   </div>
 </details>
 
 <details>
-  <summary>I lost my purchase on a new device. How do I restore it?</summary>
+  <summary>What happens when Plus ends?</summary>
   <div class="answer">
-    <p>Sign into the same Apple ID you used to purchase, then open Dribtack and tap <strong>Restore Purchases</strong> on the paywall or in Profile &rarr; Subscription. This re-asks Apple for your entitlement and unlocks paid features automatically. The same flow works for the Lifetime purchase.</p>
+    <p>Nothing you logged is lost. Your workouts, saved workouts, badges and history all stay, logging stays free, and Gino goes back to planning the first exercise of every workout. Your plan stays as it was, and you can come back to Plus any time from the You tab.</p>
   </div>
 </details>
 
 <details>
-  <summary>How does the muscle heatmap work?</summary>
+  <summary>I&rsquo;m on a new iPhone. How do I get my purchase back?</summary>
   <div class="answer">
-    <p>The heatmap colours each muscle group based on three signals over a rolling window (14 days by default): how recently you trained it, how much volume you put in, and how often you trained it. Cool blue-grey muscles haven&rsquo;t been worked in a while, amber and coral are warming up, and red muscles have been hit hard recently. The visual is a guide, not a prescription &mdash; it is meant to help you spot neglected areas at a glance.</p>
+    <p>Sign in with the Apple Account you bought with, open Go Gino and tap <strong>Restore purchases</strong> in the You tab, or <strong>Restore purchase</strong> at the bottom of the Plus screen. You need a connection for this. Plus unlocks as soon as Apple confirms it. This works for the One-time purchase too.</p>
   </div>
 </details>
 
 <details>
-  <summary>Why am I being asked to complete onboarding again on a new device?</summary>
+  <summary>How does Gino choose my weights?</summary>
   <div class="answer">
-    <p>Onboarding is per-device by design. It only takes a couple of minutes, and it gives Dribtack the chance to learn how that specific device should behave (preferred reminder times, units, etc.). Your workout history, body measurements and personal records still sync via iCloud, so nothing is lost &mdash; you simply re-confirm your preferences on each device.</p>
+    <p>From your own log. On the exercises he plans for you (the first of every workout for free, every exercise with Plus), he looks at what you lifted and how it went, then plans your next weights and reps: a little more weight once you reach the top of your rep range, and one more rep while you&rsquo;re working up to it. Tap how many reps you had left after a set and he can set up your next set straight away on those exercises.</p>
+    <p>The first time you do an exercise he helps you find a starting point, and if you&rsquo;re an experienced lifter he asks once for the weights you usually lift. His numbers are suggestions: always lift what feels right for you that day.</p>
   </div>
 </details>
 
 <details>
-  <summary>Can I use Dribtack offline?</summary>
+  <summary>How does the body map work?</summary>
   <div class="answer">
-    <p>Yes. Dribtack is a fully on-device app. You can log workouts, browse the exercise library, view your heatmap, and use every other feature without any network connection. iCloud sync resumes automatically the next time the device is online.</p>
+    <p>The map in <span class="path">Progress &rarr; Muscles</span> colours each muscle you worked in its own colour, stronger the more recently and the more you trained it, over the last 14 days. Muscles you haven&rsquo;t worked in a while stay pale, so you can spot them at a glance.</p>
+    <p>With Plus you can switch to 7 or 30 days and tap any muscle for its detail. The map is a guide, not a prescription.</p>
   </div>
 </details>
 
 <details>
-  <summary>I have an injury. Will Dribtack work around it?</summary>
+  <summary>Can I see my rest timer without opening the App?</summary>
   <div class="answer">
-    <p>You can flag injuries during onboarding or later in Profile &rarr; Preferences &rarr; Body Focus &amp; Injuries. Dribtack uses this to filter exercises out of the auto-generated templates and recommendations, and to mark flagged exercises with an amber warning in the library and detail screens.</p>
-    <p>The injury filter is informational and heuristic-based &mdash; it is not a clinical assessment and does not replace the judgement of a qualified medical professional. Always consult a doctor or physiotherapist before training around an injury.</p>
+    <p>Yes. While you rest, the countdown shows on your Lock Screen and in the Dynamic Island, and Go Gino sends a &ldquo;Rest is up&rdquo; notification when it&rsquo;s time for your next set (if you allow notifications). Tap either one to go straight back to your workout.</p>
+    <p>You can turn Live Activities off in the iOS Settings app, under Go Gino.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Does Go Gino work with Apple Health?</summary>
+  <div class="answer">
+    <p>Yes, if you turn it on in <span class="path">You &rarr; Apple Health</span>. Go Gino then saves each workout you finish to Apple Health and, if you allow it, an estimate of the energy you burned, so it can count toward your Move ring. It reads back only the workouts it saved itself, so the same workout is never added twice, and it never reads any other health data. The setting is per device.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Can I export my workouts?</summary>
+  <div class="answer">
+    <p>Yes, for free. <span class="path">You &rarr; Export your workouts</span> makes a spreadsheet file (CSV) with one row for every set, plus a second file with your weigh-ins if you&rsquo;ve logged any. Save them to Files, email them or AirDrop them. Your data is always yours to take with you.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Can I fix a workout, or add one I forgot to log?</summary>
+  <div class="answer">
+    <p>Yes. Open <span class="path">Progress &rarr; All workouts</span>, tap a workout and tap <strong>Edit</strong> to change its name, date, sets or exercises. To add a workout you did away from your phone, tap <strong>Log a past workout</strong> on the same screen. Your personal bests are worked out again after every change.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Why am I asked to set up again on a new device?</summary>
+  <div class="answer">
+    <p>Setup is per device by design, and it takes about two minutes. Your workouts, weigh-ins, photos and personal bests still come across through iCloud, so nothing is lost. You simply confirm your answers on each device.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Can I use Go Gino offline?</summary>
+  <div class="answer">
+    <p>Yes. Logging, the rest timer, your plan, Gino&rsquo;s numbers and your progress all work without a connection. Buying or restoring Plus needs one, and iCloud catches up the next time you&rsquo;re online.</p>
+  </div>
+</details>
+
+<details>
+  <summary>I have an injury. Can Go Gino work around it?</summary>
+  <div class="answer">
+    <p>You can tell Gino about your knees, shoulders, back, wrists, neck or hips during setup, or later in <span class="path">You &rarr; Training preferences &rarr; Body focus and injuries</span>. He then leaves exercises that commonly bother that area out of your saved workouts and suggestions, and marks them in the exercise library.</p>
+    <p>This is a cautious guide, not a medical assessment. Always check with a doctor or physiotherapist before training around an injury.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Are my progress photos private?</summary>
+  <div class="answer">
+    <p>Yes. You choose each photo with Apple&rsquo;s photo picker, so Go Gino never has access to your photo library, only to the photo you pick. Photos are stored on your iPhone and in your private iCloud, and nobody sees them unless you share a before-and-after card yourself.</p>
   </div>
 </details>
 
 <details>
   <summary>How do I delete all my data?</summary>
   <div class="answer">
-    <p>Open Profile &rarr; <strong>Manage Data</strong> &rarr; <strong>Delete All Data</strong> and confirm. This permanently removes your sessions, logs, sets, body measurements, personal records, custom templates, custom exercises, and profile from your device. The deletion propagates as iCloud tombstones across any other Apple devices signed into the same Apple ID. Built-in exercises are automatically re-seeded on next launch.</p>
-    <p>Deleting your data does not cancel an active subscription. To cancel, see the question above on cancellation.</p>
+    <p>Open <span class="path">You &rarr; Delete all data</span> and confirm. This permanently removes your workouts, saved workouts, weigh-ins, progress photos, personal bests, your own exercises and your profile from this device. If you&rsquo;re signed into iCloud with iCloud on for Go Gino, the deletion also reaches your iCloud and carries through to your other devices. It can&rsquo;t be undone, so export your workouts first if you&rsquo;d like a copy.</p>
+    <p>Deleting the App only removes the copy on that iPhone: your iCloud copy stays until you delete it, and comes back if you install the App again. Like any app&rsquo;s data, Go Gino&rsquo;s is also in your iPhone&rsquo;s own backups (iCloud Backup or a computer backup).</p>
+    <p>Workouts already saved to Apple Health stay there, and you can delete them in the Health app. Deleting your data doesn&rsquo;t cancel a subscription or remove your purchases.</p>
   </div>
 </details>
 
 <details>
-  <summary>My workouts aren&rsquo;t syncing across devices. What should I do?</summary>
+  <summary>My workouts aren&rsquo;t syncing. What should I do?</summary>
   <div class="answer">
-    <p>First, check that both devices are signed into the same Apple ID and have iCloud Drive enabled for Dribtack (iOS Settings &rarr; <em>your name</em> &rarr; iCloud &rarr; Apps Using iCloud). Then make sure both devices have a working network connection and that you have available iCloud storage. Sync usually completes within a minute on Wi-Fi, but can be delayed on cellular or with a poor connection.</p>
-    <p>If issues persist, force-quitting Dribtack and re-opening it usually nudges CloudKit to re-sync. If you are still stuck, get in touch using the contact details below.</p>
+    <p>Start with <span class="path">You &rarr; Backup and sync</span>, which shows whether iCloud is on. Both devices need the same Apple Account with iCloud turned on for Go Gino (iOS Settings &rarr; your name &rarr; iCloud), a network connection and some free iCloud storage. Sync usually takes under a minute on Wi-Fi.</p>
+    <p>If it&rsquo;s still stuck, close Go Gino fully and open it again. If that doesn&rsquo;t help, write to us.</p>
   </div>
 </details>
 
 <details>
-  <summary>How accurate are the calorie estimates and one-rep-max numbers?</summary>
+  <summary>How accurate are the numbers?</summary>
   <div class="answer">
-    <p>They are approximations. Calorie estimates are computed locally from your self-reported profile and the exercises you logged, using simplified industry formulas. Strength estimates use the Brzycki formula and are capped at 12 reps. Treat both as ballpark figures, not as clinically accurate measurements.</p>
+    <p>They&rsquo;re good guides, not lab measurements. Gino&rsquo;s weights and reps come from what you&rsquo;ve logged, and the energy estimate sent to Apple Health is worked out from your body weight (or 70 kg if you haven&rsquo;t added it), the kind of exercise and how long you trained. A dumbbell weight always means one dumbbell.</p>
   </div>
 </details>
 
 <details>
-  <summary>Does Dribtack share my data with anyone?</summary>
+  <summary>Does Go Gino share my data with anyone?</summary>
   <div class="answer">
-    <p>Dribtack does not run a server, so your workout data stays on your device and in your private iCloud database &mdash; the publisher has no access to it. The only third-party service involved is RevenueCat, which observes your in-app purchase transactions so we can see anonymised, aggregate sales analytics. RevenueCat receives no name, email or workout data. Full details are in the <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    <p>Only a little, and never anything you log. We don&rsquo;t run a server, so your workouts, photos and profile stay on your devices and in your private iCloud, where we can&rsquo;t see them.</p>
+    <p>Apart from Apple (the App Store, your iCloud, and Apple Health if you turn it on), the one company that gets any data from the App is RevenueCat, so we can understand sales. When you open the App it receives a random ID made by the App, your device&rsquo;s vendor identifier, your IP address (used to work out your country) and some app and device details (such as the app and iOS version, device model and language), plus the details of any purchase, restore or renewal. It never receives your name, your email, your Health data or anything you log. To ask us to have it deleted, write to us: the Privacy Policy explains what to include.</p>
+    <p>If you email us, your message is kept in our Gmail, which Google holds. These pages are hosted on GitHub Pages, which logs visitors&rsquo; IP addresses. The <a href="privacy-policy.html">Privacy Policy</a> has the details.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Which languages does Go Gino speak?</summary>
+  <div class="answer">
+    <p>English, Spanish (Latin America) and Portuguese (Brazil). The App follows your iPhone&rsquo;s language.</p>
   </div>
 </details>
 
 </div>
 
-<h2>Get in Touch</h2>
+<h2>Get in touch</h2>
 <div class="contact-card">
-  <p>Have a question, hit a bug, or want to suggest a feature? We&rsquo;d love to hear from you.</p>
+  <p>A question, a bug, or an idea for Gino? We&rsquo;d love to hear from you. In the App, tap <span class="path">You &rarr; Help</span>, or write to us here:</p>
   <a class="contact-email" href="mailto:turretspire@gmail.com">turretspire@gmail.com</a>
 </div>
-<p class="bug-tip">When reporting a bug, the following details help us help you faster: your device model, iOS version, the App version (Profile &rarr; About), and a short description of what you were trying to do when it happened.</p>
+<p class="bug-tip">Reporting a bug? It helps to include your iPhone model, your iOS version, the App&rsquo;s version (shown in the You tab, under About) and what you were doing when it happened.</p>
 
 <h2>Legal</h2>
 <div class="doc-links">
-  <a class="doc-link" href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  <a class="doc-link" href="terms-and-conditions.html">Terms and Conditions</a>
   <a class="doc-link" href="privacy-policy.html">Privacy Policy</a>
+  <a class="doc-link" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple&rsquo;s standard EULA</a>
 </div>
 
 <footer>
-  &copy; 2026 Asad Nawaz. All rights reserved.
+  <p>&copy; 2026 Go Gino. All rights reserved.</p>
 </footer>
 
 </div>
+
 </body>
 </html>
