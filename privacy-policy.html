@@ -3,343 +3,574 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dribtack — Privacy Policy</title>
+<meta name="color-scheme" content="light dark">
+<title>Go Gino: Privacy Policy</title>
+<meta name="description" content="How the Go Gino app handles your information.">
+<link rel="icon" type="image/png" href="appIcon.png">
+<link rel="apple-touch-icon" href="appIcon.png">
 <style>
+  @font-face {
+    font-family: 'Baloo 2';
+    src: url('fonts/Baloo2-VF.ttf') format('truetype');
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Nunito';
+    src: url('fonts/Nunito-VF.ttf') format('truetype');
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+  }
   :root {
-    --peach: #FFE0D0;
-    --rose: #FFB5A7;
-    --coral: #FF7E6B;
-    --lavender: #B8A9C9;
-    --bg: #FFF8F5;
-    --bg-2: #FFF0E8;
-    --ink: #2A1F26;
-    --ink-2: #5A4751;
-    --warning-bg: #FFF4E0;
-    --warning-border: #F5C542;
-    --info-bg: #EAF4F0;
-    --info-border: #7ED6A0;
+    --ground: #FFFFFF;
+    --panel: #F4F5FE;
+    --panel-strong: #EEF0FE;
+    --raised: #FFFFFF;
+    --border: #E3E4F2;
+    --rule: #EEEFF5;
+    --ink: #1C1E2B;
+    --ink-2: #3F4458;
+    --muted: #5C6274;
+    --accent-text: #1D6B91;
+    --done: #89CFF0;
+    --done-deep: #3B8FBF;
+    --action: #FF953A;
+    --action-lip: #E56B1F;
+    --action-text: #A94800;
+    --on-accent: #1C1E2B;
+    --bubble: #EDF6FC;
+    --bubble-border: #D5E9F7;
+    --coach-bg: #F1F3FE;
+    --coach-line: #B8C3F6;
+    --coach-text: #3453D3;
+    --celebrate-bg: #FFF4E8;
+    --celebrate-line: #FFD3A8;
+    --celebrate-text: #A94800;
+    --vine: #60BC71;
+    --vine-deep: #2D7B44;
+    --leaf: #A6DF74;
+    --sky-top: #DDF1FB;
+    --shadow: rgba(28, 30, 43, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #10101F;
+      --panel: #1B1B2E;
+      --panel-strong: #232540;
+      --raised: #2A2A42;
+      --border: #2C2D46;
+      --rule: #23243A;
+      --ink: #F2F3FA;
+      --ink-2: #C7CAE0;
+      --muted: #9EA2BF;
+      --accent-text: #89CFF0;
+      --action-lip: #BE551C;
+      --action-text: #FFA95C;
+      --bubble: #15263A;
+      --bubble-border: #24405A;
+      --coach-bg: #1A1E3E;
+      --coach-line: #37459B;
+      --coach-text: #8FA8FF;
+      --celebrate-bg: #2A1F17;
+      --celebrate-line: #5A3A1E;
+      --celebrate-text: #FFA95C;
+      --sky-top: #173247;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: var(--ground);
+    font-family: "Nunito", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
     line-height: 1.6;
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background:
+      linear-gradient(180deg, var(--sky-top) 0px, var(--ground) 420px);
+    min-height: 100vh;
   }
   .wrap {
-    max-width: 820px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 48px 28px 80px;
+    padding: 40px 16px 72px;
   }
-  header {
-    text-align: center;
-    margin-bottom: 36px;
+  @media (min-width: 560px) {
+    .wrap { padding: 56px 28px 80px; }
   }
-  .brand {
-    display: inline-block;
-    background: linear-gradient(90deg, var(--coral), var(--rose), var(--lavender));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .display {
+    font-family: "Baloo 2", ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", sans-serif;
+    font-weight: 800;
+  }
+  a {
+    color: var(--accent-text);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--done);
+  }
+  a:hover { text-decoration-color: var(--accent-text); }
+  p, li { color: var(--ink-2); }
+  strong { color: var(--ink); font-weight: 800; }
+
+  /* ---------- BRAND ---------- */
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .app-icon {
+    display: block;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 18px rgba(59, 143, 191, 0.28));
+  }
+  .wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wordmark .name {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .wordmark svg { display: block; margin-top: 2px; }
+  .kicker {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  /* ---------- SMALL TOP BAR (legal pages) ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .topbar .mini-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .topbar .mini-brand img { width: 40px; height: 40px; display: block; }
+  .topbar .mini-brand span {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .back-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .back-pill:hover { background: var(--panel-strong); }
+
+  /* ---------- HEADINGS ---------- */
+  h1 {
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
     font-weight: 800;
     font-size: 34px;
-    letter-spacing: -0.5px;
-  }
-  h1 {
-    font-size: 28px;
-    margin: 8px 0 6px;
-    font-weight: 700;
-  }
-  .meta {
-    color: var(--ink-2);
-    font-size: 14px;
+    line-height: 1.1;
+    margin: 10px 0 10px;
+    color: var(--ink);
   }
   h2 {
-    font-size: 20px;
-    margin-top: 36px;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(184, 169, 201, 0.35);
-    font-weight: 700;
+    font-family: "Baloo 2", ui-rounded, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 1.15;
+    margin: 48px 0 14px;
+    color: var(--ink);
   }
   h3 {
     font-size: 16px;
-    margin-top: 18px;
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-  p, li { color: var(--ink); }
-  a { color: var(--coral); }
-  ul { padding-left: 22px; }
-  li { margin-bottom: 6px; }
-  .callout {
-    background: var(--warning-bg);
-    border-left: 4px solid var(--warning-border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin: 18px 0;
-  }
-  .callout.good {
-    background: var(--info-bg);
-    border-left-color: var(--info-border);
-  }
-  .callout strong { display: block; margin-bottom: 4px; }
-  .toc {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(184, 169, 201, 0.3);
-    border-radius: 16px;
-    padding: 18px 22px;
-    margin: 24px 0 12px;
-    font-size: 14.5px;
-  }
-  .toc ol { margin: 8px 0 0 22px; padding: 0; }
-  .toc li { margin-bottom: 2px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0 18px;
-    font-size: 14.5px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid rgba(184, 169, 201, 0.25);
-    vertical-align: top;
-  }
-  th {
-    background: rgba(184, 169, 201, 0.18);
-    font-weight: 600;
+    font-weight: 800;
+    margin: 20px 0 6px;
     color: var(--ink);
   }
-  tr:last-child td { border-bottom: none; }
+  .meta { color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* ---------- CARDS ---------- */
+  .card {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 18px 20px;
+  }
+  .callout {
+    border-radius: 22px;
+    padding: 18px 20px;
+    margin: 20px 0;
+    border: 1.5px solid var(--bubble-border);
+    background: var(--bubble);
+  }
+  .callout .kicker { display: block; margin-bottom: 6px; }
+  .callout p { margin: 0; color: var(--ink); font-weight: 700; }
+  .callout.warm {
+    background: var(--celebrate-bg);
+    border-color: var(--celebrate-line);
+  }
+  .callout.warm .kicker { color: var(--celebrate-text); }
+
+  /* ---------- TAGS ---------- */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 8px;
+    line-height: 1.2;
+  }
+  .tag.free { background: var(--raised); color: var(--muted); border: 1.5px solid var(--border); }
+  .tag.plus { background: var(--action); color: var(--on-accent); box-shadow: 0 2px 0 var(--action-lip); }
+
+  /* ---------- FOOTER ---------- */
   footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(184, 169, 201, 0.35);
-    color: var(--ink-2);
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 1.5px solid var(--rule);
+    color: var(--muted);
     font-size: 13px;
     text-align: center;
   }
-  .placeholder {
-    background: rgba(255, 126, 107, 0.1);
-    border-radius: 4px;
-    padding: 0 4px;
-    color: var(--coral);
-    font-weight: 600;
+  footer p { color: var(--muted); margin: 4px 0; }
+
+  /* ---------- MOTION ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
+  .rise { animation: rise 0.55s cubic-bezier(.34, 1.56, .64, 1) both; }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; }
+    * { transition: none !important; }
+  }
+
+  .doc-head { margin-bottom: 8px; }
+  .doc-head .kicker { margin: 0; }
+  .doc-head h1 { margin-top: 4px; }
+  .intro { font-size: 16px; }
+  .toc {
+    background: var(--panel);
+    border-radius: 22px;
+    padding: 18px 22px;
+    margin: 22px 0 8px;
+    font-size: 15px;
+  }
+  .toc .kicker { display: block; margin-bottom: 6px; }
+  .toc ol { margin: 0; padding-left: 22px; columns: 1; }
+  @media (min-width: 640px) { .toc ol { columns: 2; column-gap: 28px; } }
+  .toc li { margin-bottom: 4px; color: var(--ink); break-inside: avoid; }
+  .toc a { font-weight: 700; text-decoration-color: transparent; color: var(--ink); }
+  .toc a:hover { text-decoration-color: var(--accent-text); color: var(--accent-text); }
+  h2 {
+    padding-top: 14px;
+    border-top: 1.5px solid var(--rule);
+    margin-top: 40px;
+    scroll-margin-top: 16px;
+  }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0 18px;
+    border-radius: 18px;
+    background: var(--panel);
+  }
+  table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1.5px solid var(--border);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+  th {
+    background: var(--panel-strong);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  td:first-child { color: var(--ink); font-weight: 800; }
+  tr:last-child td { border-bottom: none; }
   code {
-    background: rgba(184, 169, 201, 0.18);
-    border-radius: 4px;
+    background: var(--panel-strong);
+    border-radius: 6px;
     padding: 1px 6px;
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 13.5px;
+    color: var(--ink);
   }
+  .contact-block {
+    background: var(--bubble);
+    border: 1.5px solid var(--bubble-border);
+    border-radius: 22px;
+    padding: 16px 20px;
+  }
+  .contact-block p { margin: 0; color: var(--ink); }
+
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header>
-  <div class="brand">Dribtack</div>
+<div class="topbar">
+  <a class="mini-brand" href="index.html"><img src="appIcon.png" alt="" width="40" height="40"><span>Go Gino</span></a>
+  <a class="back-pill" href="index.html">&lsaquo;&nbsp;Support</a>
+</div>
+
+<header class="doc-head rise">
+  <p class="kicker">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective date: May 02, 2026 &middot; Last updated: May 02, 2026</p>
+  <p class="meta">Effective date: May 2, 2026 &middot; Last updated: 26 October, 2026</p>
 </header>
 
-<p>This Privacy Policy explains how the Dribtack iOS application (the &ldquo;App&rdquo;) handles information about you. References in this Policy to &ldquo;we,&rdquo; &ldquo;us,&rdquo; or the &ldquo;Publisher&rdquo; refer to the publisher of the App. It is written to be readable. Where we use a defined term, we mean what it says here.</p>
+<p class="intro">This Privacy Policy explains how the Go Gino iOS app (the &ldquo;App&rdquo;, formerly called Dribtack) handles information about you. &ldquo;We&rdquo;, &ldquo;us&rdquo; and the &ldquo;Publisher&rdquo; mean the developer who publishes the App, an individual based in Pakistan, whom you can reach at the email address in &sect;18. We&rsquo;ve tried to keep it readable: where we use a defined term, we mean what it says here.</p>
 
-<div class="callout good">
-  <strong>Summary &mdash; the short version</strong>
-  Dribtack is built to keep your data on your device and in your private iCloud account. We do not run a server, we do not have a database of users, and we do not collect your name, email or contact details. The only third party that processes any data on our behalf is RevenueCat, which observes your in-app purchase transactions so that we can see anonymised, aggregate sales analytics. RevenueCat does not receive your name or email; it does receive a randomly generated app-user identifier, your device&rsquo;s vendor identifier (IDFV), your IP address, and the transaction metadata that the App Store generates for each purchase.
+<div class="callout">
+  <span class="kicker">The short version</span>
+  <p>Go Gino keeps your data on your iPhone and in your own private iCloud. We don&rsquo;t run a server, there are no Go Gino accounts, and we don&rsquo;t collect your name, email or contact details (unless you email us). If you turn on Apple Health, the App saves your finished workouts there and reads back only the workouts it saved. The only third-party service in the App is RevenueCat, which we use for purchase analytics. When you open the App, whether or not you buy anything, it receives a random identifier made by the App, your device&rsquo;s vendor identifier, your IP address and app and device details, plus the details of any purchase, restore or renewal. It never receives your name, your email, your health data or anything you log.</p>
 </div>
 
-<div class="toc">
-  <strong>Contents</strong>
+<nav class="toc" aria-label="Contents">
+  <span class="kicker">Contents</span>
   <ol>
-    <li>Scope and roles</li>
-    <li>Data stored on your device</li>
-    <li>Data stored in your iCloud (CloudKit)</li>
-    <li>Data processed by Apple (App Store, StoreKit, Push, iCloud)</li>
-    <li>Data processed by RevenueCat (purchase analytics)</li>
-    <li>Data we do <em>not</em> collect</li>
-    <li>How we use information</li>
-    <li>Legal bases (EU/UK GDPR)</li>
-    <li>Notifications and permissions</li>
-    <li>Sharing</li>
-    <li>International transfers</li>
-    <li>Retention and deletion</li>
-    <li>Your rights</li>
-    <li>Children</li>
-    <li>Security</li>
-    <li>Changes to this Policy</li>
-    <li>Contact</li>
+    <li><a href="#scope">Scope and roles</a></li>
+    <li><a href="#device">Data stored on your device</a></li>
+    <li><a href="#icloud">Data stored in your iCloud</a></li>
+    <li><a href="#health">Apple Health</a></li>
+    <li><a href="#apple">Other Apple services</a></li>
+    <li><a href="#revenuecat">RevenueCat (purchase analytics)</a></li>
+    <li><a href="#not-collected">Data we do not collect</a></li>
+    <li><a href="#use">How information is used</a></li>
+    <li><a href="#bases">Legal bases (EU and UK GDPR)</a></li>
+    <li><a href="#permissions">Permissions</a></li>
+    <li><a href="#sharing">Sharing</a></li>
+    <li><a href="#transfers">International transfers</a></li>
+    <li><a href="#retention">Retention and deletion</a></li>
+    <li><a href="#rights">Your rights</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#changes">Changes to this Policy</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
-</div>
+</nav>
 
-<h2>1. Scope and roles</h2>
-<p>This Policy covers the Dribtack iOS app and any data processed in connection with it. It does not cover websites, services or apps operated by Apple, RevenueCat or other third parties, even if you reach them from inside Dribtack.</p>
-<p>For data we determine the purpose of (such as the small set of pseudonymous purchase analytics described in &sect;5), the Publisher acts as the &ldquo;controller&rdquo; under EU/UK GDPR. For data that lives only on your device or in your private iCloud database, we do not act as a controller because we do not have access to it.</p>
+<h2 id="scope">1. Scope and roles</h2>
+<p>This Policy covers the Go Gino iOS app, the data processed in connection with it and the emails you send us. It doesn&rsquo;t cover websites, services or apps run by Apple, RevenueCat, Google, GitHub or anyone else, even if you reach them from inside the App. Those follow their own terms and privacy policies, and we aren&rsquo;t responsible for them, except for the work RevenueCat does for us (&sect;6).</p>
+<p>For the small set of pseudonymous purchase analytics described in &sect;6, and for the emails you send us, the Publisher is the &ldquo;controller&rdquo; under EU and UK GDPR. For data that lives only on your device, in your private iCloud or in Apple Health, we are not a controller, because we have no access to it.</p>
 
-<h2>2. Data stored on your device</h2>
-<p>The vast majority of Dribtack&rsquo;s data lives on your iPhone and is processed entirely on-device. We do not transmit it to any server we operate (we do not operate a server). This includes:</p>
+<h2 id="device">2. Data stored on your device</h2>
+<p>Almost everything Go Gino knows lives on your iPhone and is processed there. We don&rsquo;t send it to any server of ours (we don&rsquo;t run one). This includes:</p>
 <ul>
-  <li>Your <strong>profile</strong> &mdash; name, optional avatar, age, gender, height, weight, fitness level, goals, injuries, equipment, preferred split, rep range, intensity, session length, weekly frequency, preferred days and times, and unit preferences.</li>
-  <li>Your <strong>workout data</strong> &mdash; sessions, exercise logs, individual sets (weight, reps, duration, distance, rest, warmup/drop-set/failure flags, completion timestamps), templates you generate or create, and the body-measurement history you log.</li>
-  <li>Your <strong>derived data</strong> &mdash; personal records, streaks, heatmap intensities, achievement-badge state, insights, and notification copy.</li>
-  <li>Your <strong>preferences and local flags</strong> &mdash; e.g. whether you have completed onboarding on this device, whether you have seen the initial paywall, your plate inventory, and contextual-paywall dismissal counters.</li>
+  <li><strong>Your profile</strong>: an optional name; your gender, and your date of birth, height and weight if you add them; your fitness level, goals, body focus areas, injuries and equipment; how you like to train (split, rep range, effort and session length); the days and time of day you train; the activities you like; your units; the weights you usually lift, if you tell Gino; and your bar and plate settings.</li>
+  <li><strong>Your workouts</strong>: workouts, exercises and sets (weight, reps, time, distance, rest, warm-up, drop-set and failure marks, how many reps you had left, and when each set was saved), notes, saved workouts, exercises you create and the exercises you mark as favourites.</li>
+  <li><strong>Your body data</strong>: weigh-ins with any notes, body fat if you log it, and progress photos with their date, angle and optional weight. Photos are reduced in size before they&rsquo;re saved.</li>
+  <li><strong>What the App works out from them</strong>: personal bests, streaks, badges and milestones, the body map, Gino&rsquo;s tips and planned numbers, and the text of your reminders.</li>
+  <li><strong>Settings each device keeps for itself</strong>: for example whether setup is finished here, your appearance choice, whether Apple Health is on and which workouts were already sent to it, which tips and celebrations you&rsquo;ve seen, and the App Store&rsquo;s last answer about prices (so the Plus screen doesn&rsquo;t jump while it loads).</li>
 </ul>
-<p>None of this leaves your device unless you explicitly enable iCloud sync (see &sect;3) or use the share-card feature (see &sect;7).</p>
+<p>None of this leaves your device unless iCloud is on (&sect;3), you turn on Apple Health (&sect;4), or you choose to share or export something (&sect;8). Like all app data, it&rsquo;s also included in your iPhone&rsquo;s backups (iCloud Backup or a backup to your computer), if you make them.</p>
 
-<h2>3. Data stored in your iCloud (CloudKit)</h2>
-<p>If you are signed into iCloud and have iCloud Drive enabled for Dribtack, the App synchronises the categories listed in &sect;2 (other than purely device-local flags) to your <strong>private CloudKit database</strong>. This means:</p>
+<h2 id="icloud">3. Data stored in your iCloud</h2>
+<p>If you&rsquo;re signed into iCloud and iCloud is on for Go Gino, the App keeps the data in &sect;2 (other than the settings each device keeps for itself and your scheduled reminders, which iOS holds on the device) in your <strong>private CloudKit database</strong>. This means:</p>
 <ul>
-  <li>The data sits in <em>your</em> iCloud account, under your Apple ID, in space that counts against your iCloud storage.</li>
-  <li>The Publisher cannot read it. CloudKit private databases are not visible to app developers.</li>
-  <li>Apple processes this data as the operator of iCloud, under <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a> and the iCloud terms of service.</li>
-  <li>Sync, conflict resolution and deletion (including device-to-device tombstones) are handled by Apple. Dribtack merely reads and writes records.</li>
+  <li>The data sits in <em>your</em> iCloud account, under your Apple Account, and counts toward your iCloud storage.</li>
+  <li>The Publisher can&rsquo;t read it. Private CloudKit databases aren&rsquo;t visible to app developers.</li>
+  <li>Apple processes it as the operator of iCloud, under <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a> and the iCloud terms.</li>
+  <li>Sync, conflicts and deletions across your devices are handled by Apple. The App only reads and writes records.</li>
 </ul>
-<p>If you sign out of iCloud, disable iCloud for Dribtack, or delete the App, the on-device copy of your data is removed by iOS in the usual way. The iCloud copy is governed by your iCloud account settings.</p>
+<p>A few small values are also kept in iCloud key-value storage: a copy of whether setup is finished and whether you&rsquo;ve seen the first Plus screen (each device still goes by its own setting), and the random identifier described in &sect;6, so that all your devices share one.</p>
+<p>Deleting the App removes the copy on that device. Your iCloud copy stays until you delete it, and comes back if you install the App again (see &sect;13).</p>
 
-<h2>4. Data processed by Apple (App Store, StoreKit, Push, iCloud)</h2>
-<p>Dribtack relies on a number of Apple services. Apple acts as an independent controller of the data it collects through those services. We do not receive identifying information from Apple, but you should be aware that:</p>
+<h2 id="health">4. Apple Health</h2>
+<p>Go Gino can work with Apple Health (HealthKit). This is <strong>off until you turn it on</strong> in You &rarr; Apple Health, and iOS asks for your permission first.</p>
 <ul>
-  <li><strong>App Store</strong> &mdash; Apple processes your download, age, and any reviews you leave. We see only aggregate App Store Connect analytics if we enable them.</li>
-  <li><strong>StoreKit 2</strong> &mdash; when you purchase or restore a subscription or the lifetime IAP, Apple processes the transaction. The App receives a signed transaction record (product identifier, transaction identifier, dates, original transaction identifier) which it uses solely to determine whether your subscription is active. The App does not receive your payment details.</li>
-  <li><strong>Apple Push Notification service</strong> &mdash; CloudKit silent pushes are used to wake the App for sync. Dribtack does not send marketing or content push notifications. Local reminders are scheduled by iOS on the device and do not leave it.</li>
-  <li><strong>iCloud Key-Value Store</strong> &mdash; a small number of preference flags are mirrored to <code>NSUbiquitousKeyValueStore</code>. The same iCloud privacy framing applies.</li>
+  <li><strong>What the App writes</strong>: each workout you finish, as a strength training workout with its start and end time, if you allow it, an estimate of the active energy you burned (worked out on your device from your body weight, or 70 kg if you haven&rsquo;t added it, the kind of exercise and how long you trained), and an internal reference so the App can recognise its own workouts later.</li>
+  <li><strong>What the App reads</strong>: only the workouts it saved itself, so the same workout is never added twice. It doesn&rsquo;t read any other Health data, such as steps, heart rate, body weight or sleep.</li>
+  <li><strong>What it never does</strong>: Health data is not used for advertising or marketing, is not sold, is not shared with RevenueCat or any other third party, and is not stored by the App in iCloud. The Publisher never receives it.</li>
+</ul>
+<p>Workouts written to Apple Health are kept by Apple under your Health settings. You can change or withdraw the App&rsquo;s access at any time in the Health app, and deleting your data in Go Gino doesn&rsquo;t remove workouts already in Health.</p>
+
+<h2 id="apple">5. Other Apple services</h2>
+<p>Go Gino relies on several Apple services. Apple is an independent controller of the data it collects through them. We don&rsquo;t receive identifying information from Apple, but you should know that:</p>
+<ul>
+  <li><strong>App Store</strong>: Apple handles your download and any reviews you leave. We see aggregate App Store Connect analytics, the reviews you leave and, if you&rsquo;ve chosen to share analytics with app developers in iOS Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements, crash reports from Apple that don&rsquo;t identify you.</li>
+  <li><strong>StoreKit 2</strong>: when you buy or restore Plus, Apple processes the purchase. The App receives a signed transaction record (the product, transaction identifiers, dates and whether a free trial or offer applies), which it uses to tell whether Plus is active and when a trial ends. The RevenueCat SDK in the App also passes these transaction records to RevenueCat for the purchase analytics in &sect;6. The App never receives your payment details.</li>
+  <li><strong>Notifications</strong>: workout reminders and &ldquo;Rest is up&rdquo; are local notifications scheduled by iOS on your device and never leave it. CloudKit may send silent pushes to wake the App for sync. Go Gino doesn&rsquo;t send marketing notifications.</li>
+  <li><strong>Live Activities</strong>: while you rest, iOS shows the countdown on your Lock Screen and in the Dynamic Island, with the workout&rsquo;s name and your next set. It&rsquo;s drawn on your device; no push server is involved.</li>
+  <li><strong>Photo picker</strong>: Apple&rsquo;s picker runs outside the App, so Go Gino gets only the photo you choose and never has access to your photo library.</li>
+  <li><strong>Mail and Safari</strong>: if you tap Help &rarr; Email us, your Mail app writes the message and we receive only what you send. These documents open in Safari inside the App and are hosted on GitHub Pages (&sect;11).</li>
 </ul>
 
-<h2>5. Data processed by RevenueCat (purchase analytics)</h2>
-<p>To understand sales performance, conversion and renewal rates, the App integrates the <strong>RevenueCat SDK</strong>. RevenueCat acts as our processor for billing analytics: it observes the StoreKit transactions that occur in the App and provides us with anonymised, aggregate dashboards and webhook events.</p>
+<h2 id="revenuecat">6. RevenueCat (purchase analytics)</h2>
+<p>To understand sales, conversion and renewal, the App includes the <strong>RevenueCat SDK</strong>. RevenueCat acts as our processor for purchase analytics: the App connects to it when you open it, whether or not you buy anything, and it sees the App Store purchases made in the App and gives us dashboards and events about them. Your purchases themselves are checked by Apple&rsquo;s StoreKit, not by RevenueCat.</p>
 
 <h3>What RevenueCat receives</h3>
+<div class="table-wrap">
 <table>
   <thead>
-    <tr>
-      <th>Category</th>
-      <th>Specific data</th>
-      <th>Purpose</th>
-    </tr>
+    <tr><th>Category</th><th>What exactly</th><th>Why</th></tr>
   </thead>
   <tbody>
     <tr>
       <td>Pseudonymous user ID</td>
-      <td>An anonymous &ldquo;App User ID&rdquo; (e.g. <code>$RCAnonymousID:&hellip;</code>) generated by the RevenueCat SDK on first launch. We do not call <code>Purchases.logIn</code> with any account identifier, because the App has no account system.</td>
-      <td>To group transactions belonging to the same install / Apple ID and avoid double-counting.</td>
+      <td>A random identifier the App makes on its first launch. It&rsquo;s saved on your device and in your iCloud key-value storage, so your devices on the same Apple Account share it. It isn&rsquo;t made from your name, email or Apple Account. Deleting your data in the App doesn&rsquo;t reset it, because your purchases stay with your Apple Account.</td>
+      <td>To count one customer once across their devices and keep their purchase history together.</td>
     </tr>
     <tr>
       <td>Device identifier</td>
       <td>The iOS Identifier for Vendor (IDFV).</td>
-      <td>De-duplication and entitlement matching.</td>
+      <td>Telling installs apart and matching purchases.</td>
     </tr>
     <tr>
       <td>Network identifier</td>
-      <td>Your IP address (used by RevenueCat for country-level geolocation, tax handling and fraud detection; not stored long-term in identifiable form).</td>
-      <td>Geographic analytics, fraud prevention, tax compliance.</td>
+      <td>Your IP address, which reaches RevenueCat with every connection. RevenueCat uses it to work out your country when the purchase doesn&rsquo;t give one, and doesn&rsquo;t keep it on your record.</td>
+      <td>Country-level figures.</td>
     </tr>
     <tr>
-      <td>Transaction metadata</td>
-      <td>The App Store product identifier of the purchased subscription or one-time in-app purchase, transaction and original-transaction identifiers, purchase and expiration dates, price and currency, country of purchase, trial / introductory-offer status, refund or chargeback events.</td>
-      <td>Subscription analytics: conversion, retention, churn, LTV, revenue.</td>
+      <td>Purchase details</td>
+      <td>The plan bought (Weekly, Yearly or One-time), transaction identifiers, purchase and expiry dates, price and currency, country, whether a free trial or offer applied, restores, renewals and, where Apple reports them, refunds.</td>
+      <td>Conversion, retention, churn and revenue figures.</td>
     </tr>
     <tr>
-      <td>Environment metadata</td>
-      <td>App version, OS version, device model, locale, SDK version.</td>
-      <td>Diagnostics and segmentation.</td>
+      <td>App and device details</td>
+      <td>App version, iOS version, device model, preferred languages, App Store country (storefront) and SDK version.</td>
+      <td>Diagnostics and grouping figures.</td>
     </tr>
   </tbody>
 </table>
+</div>
 
 <h3>What RevenueCat does <em>not</em> receive</h3>
 <ul>
-  <li>Your name, email address or any other contact details (the App never asks for or sends these).</li>
-  <li>Your Apple ID, payment-card details, or other payment instruments &mdash; these stay with Apple.</li>
-  <li>Any of your workout data, body measurements, profile preferences, photos, or content from inside the App.</li>
+  <li>Your name, email or any other contact details (the App never asks for them or sends them).</li>
+  <li>Your Apple Account, card details or other payment information, which stay with Apple.</li>
+  <li>Your workouts, body data, photos, Health data, profile or anything else you create in the App.</li>
 </ul>
-<p>Under EU/UK data-protection law, the IP address and device identifier described above are still considered personal data even though they are not directly identifying. We have therefore described them clearly here rather than calling the integration "fully anonymous."</p>
-<p>RevenueCat&rsquo;s own privacy practices are described at <a href="https://www.revenuecat.com/privacy/">revenuecat.com/privacy</a>.</p>
+<p>Under EU and UK law, an IP address and a device identifier still count as personal data even though they don&rsquo;t name you, so we describe them plainly here rather than calling the integration &ldquo;fully anonymous&rdquo;. RevenueCat&rsquo;s own practices are described at <a href="https://www.revenuecat.com/privacy/">revenuecat.com/privacy</a>. RevenueCat processes this data only on our behalf, under its data processing agreement with us. We confirm that RevenueCat provides the same or equal protection of your data as this Policy describes and Apple&rsquo;s App Store Review Guidelines require. Our legal basis, and your right to object, are in &sect;9 and &sect;14.</p>
 
-<h2>6. Data we do <em>not</em> collect</h2>
-<p>For clarity, the Publisher itself does <strong>not</strong>:</p>
+<h2 id="not-collected">7. Data we do not collect</h2>
+<p>To be clear, the Publisher does <strong>not</strong>:</p>
 <ul>
-  <li>Operate any back-end server, database, login system or account system. There is no &ldquo;Dribtack account&rdquo;.</li>
-  <li>Collect your name, email, phone number, postal address, photo, voice or biometric data.</li>
-  <li>Receive your workout data, profile, body measurements, or any other content you create in the App.</li>
-  <li>Use HealthKit. Calorie estimation is computed locally from your self-reported data.</li>
-  <li>Use third-party advertising SDKs, attribution SDKs, or product-analytics SDKs (such as Mixpanel, Amplitude, Firebase Analytics, AppsFlyer, Adjust, Branch or Meta SDK) at the time of writing. RevenueCat is the only third-party SDK in the App and is used solely for the purpose described in &sect;5.</li>
-  <li>Track your activity across other companies&rsquo; apps and websites. We do not request the App Tracking Transparency permission.</li>
+  <li>Run any server, database, login or account system. There is no Go Gino account.</li>
+  <li>Collect your name, email, phone number, postal address, voice or biometric data. (If you email us, we receive your email address and message; see &sect;8.)</li>
+  <li>Receive your workouts, profile, body data, progress photos, Health data or anything else you create in the App.</li>
+  <li>Use advertising, attribution or product-analytics SDKs (such as Mixpanel, Amplitude, Firebase Analytics, AppsFlyer, Adjust, Branch or the Meta SDK). RevenueCat is the only third-party SDK in the App, used only as described in &sect;6.</li>
+  <li>Track you across other companies&rsquo; apps and websites. The App doesn&rsquo;t ask for App Tracking Transparency permission.</li>
   <li>Sell, rent or trade any data.</li>
 </ul>
 
-<h2>7. How we use information</h2>
-<p>Because most of your data never leaves your device or your iCloud, &ldquo;use&rdquo; in the privacy sense applies to a narrow slice:</p>
+<h2 id="use">8. How information is used</h2>
+<p>Because most of your data never leaves your devices or your iCloud, &ldquo;use&rdquo; in the privacy sense covers only a little:</p>
 <ul>
-  <li><strong>RevenueCat purchase analytics</strong> &mdash; to operate, understand and improve the paid offering, set prices, decide whether to keep a free trial, monitor refund rates, and meet our tax / accounting obligations.</li>
-  <li><strong>Local processing inside the App</strong> &mdash; to render the heatmap, generate templates, compute insights, schedule notifications, detect personal records, render share cards and otherwise provide the features you have asked for.</li>
-  <li><strong>Share cards</strong> &mdash; if you choose to share a workout, streak, weekly-goal or PR card, the image is rendered on-device and handed to iOS&rsquo;s standard share sheet. Once you pick a destination (Messages, Instagram, etc.), the receiving app handles the image under its own terms. The Publisher does not receive a copy.</li>
+  <li><strong>Inside the App, on your device</strong>: to build your saved workouts, plan your weights and reps, draw the body map, work out personal bests, badges and progress, write Gino&rsquo;s tips, schedule reminders, and everything else you use the App for.</li>
+  <li><strong>Share cards</strong>: if you share a workout, a new best, a streak, a weekly goal, your week or a before-and-after card, the image is drawn on your device and handed to iOS&rsquo;s share sheet. A before-and-after card can include the progress photos you pick for it. Once you choose where to send it, that app handles the image under its own terms. We never receive a copy.</li>
+  <li><strong>Export</strong>: if you export your workouts, the spreadsheet files are made on your device and go wherever you send them.</li>
+  <li><strong>Emails you send us</strong>: we use your address and message only to reply and to help you.</li>
+  <li><strong>RevenueCat analytics</strong>: to run, understand and improve Plus, set prices, decide on free trials and follow cancellations and refunds.</li>
 </ul>
 
-<h2>8. Legal bases (EU/UK GDPR)</h2>
-<p>If you are in the EU, EEA, UK or Switzerland, our legal bases for processing the limited personal data described in &sect;5 are:</p>
+<h2 id="bases">9. Legal bases (EU and UK GDPR)</h2>
+<p>If you&rsquo;re in the EU, EEA, UK or Switzerland, our legal bases for the limited personal data we do process are:</p>
 <ul>
-  <li><strong>Contractual necessity</strong> (Art. 6(1)(b) GDPR) for matching your purchase to your install so that paid features unlock for you.</li>
-  <li><strong>Legitimate interests</strong> (Art. 6(1)(f) GDPR) in understanding aggregate sales performance, preventing fraud, and improving the App. We balance this against your privacy by minimising the data, not linking it to your identity, and using a single processor with appropriate contractual safeguards.</li>
-  <li><strong>Legal obligation</strong> (Art. 6(1)(c) GDPR) for tax and accounting records that include transaction-level information.</li>
+  <li><strong>Legitimate interests</strong> (Art. 6(1)(f) GDPR): the RevenueCat analytics in &sect;6 (understanding sales as a whole and improving the App), and answering your emails. We balance this against your privacy by keeping the data to a minimum, not linking it to your name, and having RevenueCat process it only under a data processing agreement. You can object to this at any time, or ask for the data to be deleted, by email (&sect;14).</li>
 </ul>
-<p>For everything that stays on your device or in your iCloud, no Publisher-side legal basis is required because the Publisher does not process it.</p>
+<p>If the law ever requires us to keep or disclose data (&sect;11), that legal obligation (Art. 6(1)(c) GDPR) is the basis. Everything that stays on your device, in your iCloud or in Apple Health needs no legal basis on our side, because the Publisher doesn&rsquo;t process it.</p>
 
-<h2>9. Notifications and permissions</h2>
-<p>The App may ask for the following iOS permissions:</p>
+<h2 id="permissions">10. Permissions</h2>
+<p>The App may ask for these iOS permissions. You can change each of them at any time in the iOS Settings app:</p>
 <ul>
-  <li><strong>Notifications</strong> &mdash; for local workout reminders, rest-day reminders and re-engagement nudges. Reminders are scheduled and fired by iOS on your device. No data leaves the device for this purpose. You can revoke this at any time in Settings.</li>
-  <li><strong>iCloud</strong> &mdash; granted at the operating-system level. You can disable iCloud for Dribtack in iOS Settings.</li>
+  <li><strong>Notifications</strong>: workout and rest-day reminders, and &ldquo;Rest is up&rdquo; when a rest ends. Scheduled and shown on your device only.</li>
+  <li><strong>Apple Health</strong>: only if you turn it on, to save your finished workouts (see &sect;4).</li>
+  <li><strong>Photos (add only)</strong>: only if you tap Save Image on a share card, to add that image to your photo library. This permission lets the App add photos, not see them, so the App still can&rsquo;t read your library.</li>
+  <li><strong>Live Activities</strong>: the rest countdown on your Lock Screen and in the Dynamic Island.</li>
+  <li><strong>iCloud</strong>: set at the system level; you can turn it off for Go Gino in iOS Settings.</li>
 </ul>
+<p>Choosing a progress photo needs no permission, because Apple&rsquo;s photo picker gives the App only the photo you pick.</p>
 
-<h2>10. Sharing</h2>
-<p>We share personal data only as described in this Policy:</p>
+<h2 id="sharing">11. Sharing</h2>
+<p>We share personal data only as this Policy describes:</p>
 <ul>
-  <li>With <strong>Apple</strong>, as the operator of the App Store, StoreKit, iCloud, CloudKit, and the iOS notification system.</li>
-  <li>With <strong>RevenueCat</strong>, as our processor for the purchase analytics described in &sect;5.</li>
-  <li>With <strong>law enforcement or regulators</strong>, where we are legally compelled and where we actually hold relevant data &mdash; which, for the kinds of requests typically made about a user&rsquo;s in-app activity, would not be the case.</li>
-  <li>With a <strong>successor</strong>, in the event of a merger, acquisition, restructuring or sale of all or part of the Publisher&rsquo;s business. Any successor would be bound by a privacy policy at least as protective as this one.</li>
+  <li>With <strong>Apple</strong>, as the operator of the App Store, StoreKit, iCloud, CloudKit, Apple Health and the iOS notification system.</li>
+  <li>With <strong>RevenueCat</strong>, as our processor for the purchase analytics in &sect;6. RevenueCat uses its own sub-processors (such as cloud hosting providers), listed in its data processing agreement.</li>
+  <li>With <strong>Google</strong>, which hosts our email (Gmail), so emails you send us are stored there under <a href="https://policies.google.com/privacy">Google&rsquo;s Privacy Policy</a>.</li>
+  <li>With <strong>law enforcement or regulators</strong>, where the law requires it, or where we need to establish, exercise or defend legal claims, and only where we actually hold the data asked for, which for your activity in the App is very unlikely.</li>
+  <li>With a <strong>successor</strong>, if all or part of the Publisher&rsquo;s business is merged, sold or restructured. A successor would continue to use the data as this Policy describes unless it tells you of a change (&sect;17).</li>
 </ul>
+<p>Our support pages, including this Policy, are hosted on GitHub Pages. Like any website host, GitHub logs the IP address of anyone who opens them, for security, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub&rsquo;s privacy statement</a>. We don&rsquo;t use cookies, analytics or trackers on these pages.</p>
 
-<h2>11. International transfers</h2>
-<p>RevenueCat is based in the United States. Where we transfer personal data of EU/UK/Swiss users to RevenueCat, we rely on the EU Standard Contractual Clauses (and the UK Addendum / Swiss equivalent where relevant) as the lawful transfer mechanism, supplemented by RevenueCat&rsquo;s technical and organisational measures. Apple operates a global infrastructure and will determine the location of data it processes in accordance with its own policies.</p>
+<h2 id="transfers">12. International transfers</h2>
+<p>RevenueCat is based in the United States. Where personal data of EU, UK or Swiss users goes to RevenueCat, we rely on the EU Standard Contractual Clauses (with the UK Addendum or Swiss equivalent where relevant), together with RevenueCat&rsquo;s technical and organisational measures. The Publisher is based in Pakistan and reads the analytics in &sect;6 and the emails you send from there. Apple, Google and GitHub run global infrastructure and decide where the data they process is held under their own policies.</p>
 
-<h2>12. Retention and deletion</h2>
-<p>On-device and iCloud data is retained for as long as you keep the App installed and your iCloud account configured. You can permanently delete it at any time using the in-App control: <strong>Profile &rarr; Manage Data &rarr; Delete All Data</strong>. This wipes your sessions, logs, sets, measurements, personal records, custom templates, custom exercises, and profile from your device, and propagates the deletion to your iCloud database (and through CloudKit to any other Apple devices signed into the same Apple ID).</p>
-<p>RevenueCat retains transaction-level data for as long as it is needed for analytics, fraud prevention and the Publisher&rsquo;s tax and accounting obligations (which can be up to ten years in some jurisdictions). To request deletion of RevenueCat-side records associated with your install, contact us at the address in &sect;17 with the approximate date of your purchase and your country of purchase &mdash; we will use that information to identify the relevant pseudonymous record and ask RevenueCat to delete it, except where a legal obligation requires us to keep it.</p>
+<h2 id="retention">13. Retention and deletion</h2>
+<p>Data on your device is kept until you delete it or delete the App. Data in your iCloud is kept until you delete it: deleting the App doesn&rsquo;t remove it, and it comes back if you install the App again. To delete everything, use <strong>You &rarr; Delete all data</strong> while you&rsquo;re signed into iCloud with iCloud on for Go Gino. This removes your workouts, saved workouts, weigh-ins, progress photos, personal bests, the exercises you created and your profile from your device and your iCloud, and the deletion carries through to your other devices signed into the same Apple Account. It doesn&rsquo;t remove workouts already saved to Apple Health (delete those in the Health app) or your purchases, which stay with your Apple Account. Copies in your iPhone&rsquo;s backups stay until those backups are replaced or deleted.</p>
+<p>RevenueCat keeps the records it holds for us (the App&rsquo;s random identifier, your device&rsquo;s vendor identifier, and purchase, app and device details) for as long as our RevenueCat account is open, under RevenueCat&rsquo;s retention policy, unless you ask us to have them deleted. RevenueCat uses your IP address to work out your country and doesn&rsquo;t keep it on your record. To ask for RevenueCat&rsquo;s records about your purchases to be deleted, write to us (&sect;18) with the Order ID from Apple&rsquo;s receipt email (also listed at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>). We&rsquo;ll use it to look for the record and ask RevenueCat to delete it. If you never bought anything, RevenueCat&rsquo;s record holds the App&rsquo;s random identifier, your device&rsquo;s vendor identifier, app and device details and the country worked out from your IP address. None of it names you, so we have no way to match it to you. If you keep using the App afterwards, RevenueCat starts a new record the next time you open it.</p>
+<p>Emails you send us are kept in our email account for as long as we need them to help you and to keep a record of the conversation.</p>
 
-<h2>13. Your rights</h2>
-<p>Depending on where you live, you may have rights to: access, correct, delete or receive a copy of your personal data; object to or restrict its processing; withdraw consent; or lodge a complaint with your local data-protection authority. Because most of your data lives on your own device and your own iCloud account, you can exercise most of these rights yourself by editing or deleting data in the App, or by managing iCloud settings on your device.</p>
-<p>For the limited data described in &sect;5, contact us using &sect;17 and we will respond within the timeframe required by applicable law (typically one month under GDPR).</p>
-<p>If you are a California resident, you have rights under the CCPA/CPRA, including the right to know, delete and correct, and the right to opt out of &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information. We do not sell or share personal information for cross-context behavioural advertising.</p>
+<h2 id="rights">14. Your rights</h2>
+<p>Depending on where you live, you may have the right to access, correct, delete or get a copy of your personal data, to object to or restrict its processing, to withdraw consent, and to complain to your local data-protection authority. Because most of your data lives on your own device, in your own iCloud and in your own Health app, you can use most of these rights yourself, by editing, exporting or deleting data in the App, or through your iCloud and Health settings.</p>
+<p>For the limited data in &sect;6, write to us (&sect;18) and we&rsquo;ll reply within the time the law requires (usually one month under GDPR).</p>
+<p>You can object at any time to the RevenueCat analytics in &sect;6, or ask for that data to be deleted, by writing to us (&sect;18). We&rsquo;ll ask RevenueCat to delete the record we can find for you (&sect;13). The App can&rsquo;t switch RevenueCat off for one person, so to stop it sending anything further, delete the App.</p>
+<p>If you&rsquo;re in Brazil, you have the rights in Art. 18 of the LGPD (Lei Geral de Prote&ccedil;&atilde;o de Dados), including confirmation that we process your data, access, correction, anonymisation, blocking or deletion, portability, information about who we share it with, and the right to object and to complain to the ANPD. Our legal basis for the RevenueCat analytics is legitimate interest (Art. 7, IX). Write to us (&sect;18) to use these rights.</p>
+<p>If you live in California, you have rights under the CCPA and CPRA, including the right to know, delete and correct, and to opt out of the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information. We don&rsquo;t sell or share personal information for cross-context behavioural advertising.</p>
 
-<h2>14. Children</h2>
-<p>Dribtack is not directed at children under 13, and we do not knowingly collect personal data from anyone under 13. Use of Dribtack by minors above the age of 13 should be supervised by a parent or guardian.</p>
+<h2 id="children">15. Children</h2>
+<p>Go Gino isn&rsquo;t for children under 13, and we don&rsquo;t knowingly collect personal data from anyone under 13. If you&rsquo;re 13 or older but a minor where you live, use the App only with the consent and supervision of a parent or guardian, as our Terms require. If you think a child under 13 has sent us personal data, write to us (&sect;18) and we&rsquo;ll delete what we can find.</p>
 
-<h2>15. Security</h2>
-<p>We rely on Apple&rsquo;s platform security (iOS sandboxing, Keychain, iCloud encryption in transit and at rest) for on-device and iCloud data, and on RevenueCat&rsquo;s security programme for the analytics data described in &sect;5. No system is perfectly secure; we encourage you to keep your device, OS and Apple ID protected with up-to-date software and a strong passcode or biometric lock.</p>
+<h2 id="security">16. Security</h2>
+<p>We rely on Apple&rsquo;s platform security (iOS sandboxing and data protection, and iCloud encryption in transit and at rest) for data on your device, in iCloud and in Apple Health, and on RevenueCat&rsquo;s security programme for the analytics in &sect;6. No system is perfectly secure, and we can&rsquo;t guarantee that data won&rsquo;t be lost or accessed without permission, so we encourage you to keep your iPhone, iOS and Apple Account protected with current software and a strong passcode, Face ID or Touch ID.</p>
 
-<h2>16. Changes to this Policy</h2>
-<p>We may update this Policy from time to time. When we make material changes, we will update the &ldquo;Last updated&rdquo; date above and, where appropriate, surface the change in the App or on the App Store listing.</p>
+<h2 id="changes">17. Changes to this Policy</h2>
+<p>We may update this Policy from time to time, and we&rsquo;ll change the &ldquo;Last updated&rdquo; date above each time. When we make an important change, we&rsquo;ll also mention it in the App or in the App Store release notes before it takes effect, unless the change is needed sooner for legal or security reasons.</p>
 
-<h2>17. Contact</h2>
-<p>For any questions or to get in touch, reach out at:</p>
-<p>
-  Asad Nawaz<br>
-  Email: <a href="mailto:turretspire@gmail.com">turretspire@gmail.com</a>
-</p>
+<h2 id="contact">18. Contact</h2>
+<div class="contact-block">
+  <p>Email: <a href="mailto:turretspire@gmail.com">turretspire@gmail.com</a></p>
+</div>
+
 <footer>
-  &copy; 2026 Asad Nawaz. All rights reserved.
+  <p>&copy; 2026 Go Gino. All rights reserved.</p>
 </footer>
 
 </div>
+
 </body>
 </html>
